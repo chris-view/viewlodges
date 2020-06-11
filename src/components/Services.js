@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { FaLeanpub, FaConnectdevelop, FaUserFriends,  FaRegChartBar } from "react-icons/fa";
 import Title from "./Title";
-import { useState } from "react";
+
 export default class Services extends Component {
   state = {
     services: [

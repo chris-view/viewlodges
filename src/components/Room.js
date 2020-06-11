@@ -22,7 +22,7 @@ const Room = memo(({ room }) => {
         {occupancy ?  <div className="available"/> : <div className="occupied"/>}
         <article className="info">
           <h6>Region : {region}</h6>
-          <h6>type : {type}</h6>
+          <h6>Type : {type}</h6>
           <h6>rent cost : ₦{annualRent}</h6>
         </article>
       </div>
