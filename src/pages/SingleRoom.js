@@ -70,7 +70,7 @@ export default class SingleRoom extends Component {
               <h6>title : {name}</h6>
               <h6>type : {type}</h6>
               <h6>rent cost : ₦{annualRent}</h6>
-            <h6>running water : {water ? "available" : "not available"}</h6>
+              <h6>running water : {water ? "available" : "not available"}</h6>
               <h6>occupancy : {occupancy ? "available" : "occupied"}</h6>
               <h6>max capacity </h6>
               <h6>size : {size} SQFT</h6>

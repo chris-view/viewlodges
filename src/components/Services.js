@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FaLeanpub, FaConnectdevelop, FaUserFriends,  FaRegChartBar } from "react-icons/fa";
+import { FaLeanpub, FaUserFriends, FaShuttleVan, FaPaintRoller, FaGasPump, FaLaptop } from "react-icons/fa";
 import Title from "./Title";
 
 export default class Services extends Component {
@@ -9,25 +9,37 @@ export default class Services extends Component {
         icon: <FaUserFriends />,
         title: "roomie pairing",
         info:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias molestias eius libero?"
+          "Get matched with paddies to stay with off-campus."
       },
       {
-        icon: <FaConnectdevelop />,
+        icon: <FaShuttleVan />,
+        title: "Shuttles",
+        info:
+          "Move your properties stress free, with our coolest off-campus rides."
+      },
+      {
+        icon: <FaPaintRoller />,
+        title: "painting",
+        info:
+          "Get in tourch with our A-level skilled room painters and designers."
+      },
+      {
+        icon: <FaGasPump/>,
+        title: "Gas Filling",
+        info:
+          "Filling your gas is just a click away."
+      },
+      {
+        icon: <FaLaptop/>,
         title: "software training",
         info:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias molestias eius libero?"
+          "Get skilled in sorftware development, and be in command of jobs."
       },
       {
         icon: <FaLeanpub />,
         title: "project assistance",
         info:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias molestias eius libero?"
-      },
-      {
-        icon: <FaRegChartBar />,
-        title: "data analysis",
-        info:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias molestias eius libero?"
+          "Our expert teams will assist you in your final year projects and thesis."
       }
     ]
   };

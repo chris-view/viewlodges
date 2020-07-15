@@ -97,12 +97,23 @@ export default class RoomProvider extends Component {
       this.setState({regions:regionList.region});
     }
 
-    this.setState(
-      {
-        [name]: value // array destructuring 
-      },
-      this.filterRooms
-    );
+    // Condition to update data accordingly even after school is changed to show all
+    if((name === "school") && value === "All"){
+      this.setState(
+        {
+          school: value,
+          region: "All"
+        },
+        this.filterRooms
+      );
+    }else{
+      this.setState(
+        {
+          [name]: value // array destructuring 
+        },
+        this.filterRooms
+      );
+    }
   };
   filterRooms = () => {
     let {
@@ -121,6 +132,7 @@ export default class RoomProvider extends Component {
     
     annualRent = parseInt(annualRent); 
 
+    
     // filter by school
     if (school.toLowerCase() !== "all") {
       tempRooms = tempRooms.filter(room => room.school.toLowerCase() === school.toLowerCase());
