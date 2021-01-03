@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import defaultBcg from "../images/room-1.jpeg";
 import { Link } from "react-router-dom";
 import { RoomContext } from "../context";
-import Banner from "../components/Banner"
-
-import StyledHero from "../components/StyledHero";
+import YoutubeVideo from "../components/YoutubeVideo"
 export default class SingleRoom extends Component {
   constructor(props) {
     super(props);
@@ -43,28 +41,25 @@ export default class SingleRoom extends Component {
       annualRent,
       water,
       extras,
-      images
+    //  images
     } = room;
-    const [main, ...defaultImages] = images;
+   // const [main, ...defaultImages] = images;
 
     return (
-       <>{
-        <StyledHero img={main || this.state.defaultBcg}>
-          <Banner title={`${name} room`}>
-            <Link to="/rooms" className="btn-primary">
-              back to rooms
-            </Link>
-          </Banner>
-        </StyledHero>
-        }
+       <>
         <section className="single-room">
-          <div className="single-room-images">
-            {defaultImages.map((item, index) => (
-              <img key={index} src={item} alt={name} />
-            ))}
-          </div>
+         
           <div className="single-room-info">
-            
+            <article className="info">
+              <YoutubeVideo/>
+            </article>
+            <article className="info">
+              <h3>Kindly Subscribe and Follow Us:</h3>
+              <h6> Facebook: @Viewlodges</h6>
+              <h6> Instagram : @Viewlodges </h6>
+              <h6> YouTube : @Viewlodges </h6>
+            </article>
+              
             <article className="info">
               <h3>info</h3>
               <h6>title : {name}</h6>

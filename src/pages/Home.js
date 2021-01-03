@@ -11,7 +11,7 @@ const home = () => {
       <Hero hero="roomsHero">
         <Banner
           title="welcome to viewlodges"
-          subtitle="Your No.1 platform to view off campus homes"
+          subtitle="Your free No.1 platform to view homes away from home..."
         >
          
         </Banner>

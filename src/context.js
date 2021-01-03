@@ -98,7 +98,7 @@ export default class RoomProvider extends Component {
     }
 
     // Condition to update data accordingly even after school is changed to show all
-    if((name === "school") && value === "All"){
+    if(name === "school"){
       this.setState(
         {
           school: value,
@@ -150,11 +150,11 @@ export default class RoomProvider extends Component {
     
     // filter by price
     tempRooms = tempRooms.filter(room => room.annualRent <= annualRent);
-    //filter by breakfast
+    //filter by occupancy
     if (occupancy) {
       tempRooms = tempRooms.filter(room => room.occupancy === true);
     }
-    //filter by pets
+    //filter by steaby gen
     if (standByGen) {
       tempRooms = tempRooms.filter(room => room.standByGen === true);
     }
