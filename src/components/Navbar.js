@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaBlackberry, FaHome,  FaDoorOpen, FaCloudUploadAlt, FaFileUpload} from "react-icons/fa";
+import { FaBlackberry, FaHome,  FaDoorOpen, FaCloudUploadAlt} from "react-icons/fa";
 import logo from "../images/VL_logo_black.PNG";
 export default  Navbar => {
   // 
