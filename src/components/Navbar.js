@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBlackberry, FaHome,  FaDoorOpen, FaCloudUploadAlt} from "react-icons/fa";
 import logo from "../images/VL_logo_black.PNG";
-export default  Navbar => {
-  // 
+ const Navbar = () => {
   const [toggle, setToggle] = useState(false)
   const handleToggle = () => {
     setToggle(prev => !prev);
@@ -46,3 +45,4 @@ export default  Navbar => {
     </nav>
   );
 }
+export default Navbar;

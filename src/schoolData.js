@@ -1,4 +1,4 @@
-export default [
+ const schoolData = [
     {
         school: "All",
         region: []
@@ -77,4 +77,6 @@ export default [
     //     region: ["Amansea","Aroma","Commissioners Quarter Axis","Ifite","Reginal","School Gate Axis","Tempsite"]
     // },
 ];
+
+export default schoolData;
    	   

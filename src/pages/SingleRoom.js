@@ -51,7 +51,7 @@ export default class SingleRoom extends Component {
          
           <div className="single-room-info">
             <article className="info">
-              <YoutubeVideo/>
+              <YoutubeVideo title = {name}/>
             </article>
             <article className="info">
               <h3>Kindly Subscribe and Follow Us:</h3>
@@ -85,7 +85,7 @@ export default class SingleRoom extends Component {
             ))}
           </ul>
         </section>
-        <div  style={{ display : "flex", alignItems : "center", justifyContent : "center"}}>
+        <div  style={{ display : "flex", alignItems : "center", justifyContent : "center", paddingBottom : "2rem"}}>
           <Link to="/" className="btn-primary">
               back 
           </Link>
