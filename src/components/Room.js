@@ -4,12 +4,12 @@ import defaultImg from "../images/room-1.jpeg";
 import PropTypes from "prop-types";
 import { memo } from "react";
 const Room = memo(({ room }) => {
-  const { slug, images, annualRent, region, type, occupancy } = room;
+  const {id, images, annualRent, region, type, occupancy } = room;
   
   return (
     <article className="room">
       <div className="img-container">
-        <Link to={`/rooms/${slug}`} >
+        <Link to={`/rooms/${id}`} >
           <img src={images[0] || defaultImg} alt="single room" />
         </Link>
         {/* <div className="price-top">
@@ -27,7 +27,7 @@ const Room = memo(({ room }) => {
         </article>
       </div>
       <div className="room-info">
-        <Link to={`/rooms/${slug}`} className="btn-room">
+        <Link to={`/rooms/${id}`} className="btn-room">
           See Details
         </Link>
       </div>
@@ -39,7 +39,7 @@ Room.propTypes = {
   room: PropTypes.shape({
     region: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
     images: PropTypes.arrayOf(PropTypes.string).isRequired,
     annualRent: PropTypes.number.isRequired
   })

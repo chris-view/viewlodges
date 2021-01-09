@@ -9,18 +9,14 @@ export default class RoomProvider extends Component {
   state = {
     rooms: [],
     sortedRooms: [],
-    featuredRooms: [],
     loading: true,
-    //
     school: "All",
     region: "All",
     type: "All",
-    title: "",
     regions: [],
     annualRent: 0,
     occupancy:false,
     standByGen: false,
-    water: false,
     minPrice: 0,
     maxPrice: 0,
   };
@@ -38,7 +34,6 @@ export default class RoomProvider extends Component {
   //     let maxSize = Math.max(...rooms.map(item => item.size));
   //     this.setState({
   //       rooms,
-  //       featuredRooms,
   //       sortedRooms: rooms,
   //       loading: false,
   //       //
@@ -55,24 +50,21 @@ export default class RoomProvider extends Component {
     // this.getData();
 
     let rooms = this.formatData(items);
-    let featuredRooms = rooms.filter(room => room.featured === true);
-    //
+    // let featuredRooms = rooms.filter(room => room.featured === true);
+    
     let maxPrice = Math.max(...rooms.map(item => item.annualRent));
     this.setState({
       rooms,
-      featuredRooms,
       sortedRooms: rooms,
       loading: false,
-      //
       annualRent : maxPrice,
-      price: maxPrice, // redundant code
       maxPrice
       
     });
   }
 
   formatData(items) {
-    let tempItems = items.map(item => {
+      let tempItems = items.map(item => {
       let id = item.sys.id;
       let images = item.fields.images.map(image => image.fields.file.url);
 
@@ -81,9 +73,9 @@ export default class RoomProvider extends Component {
     });
     return tempItems;
   }
-  getRoom = slug => {
+  getRoom = id => {
     let tempRooms = [...this.state.rooms];
-    const room = tempRooms.find(room => room.slug === slug);
+    const room = tempRooms.find(room => room.id === id);
     return room;
   };
   handleChange = event => {
@@ -93,7 +85,7 @@ export default class RoomProvider extends Component {
     
     if(name === "school"){//check to update regions
       
-      let regionList = schoolData.find(item => item.school===value);
+      let regionList = schoolData.find(item => item.school === value);
       this.setState({regions:regionList.region});
     }
 

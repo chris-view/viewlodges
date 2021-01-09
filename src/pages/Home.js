@@ -13,7 +13,6 @@ const home = () => {
           title="welcome to viewlodges"
           subtitle="Your free No.1 platform to view homes away from home..."
         >
-         
         </Banner>
       </Hero>
       <RoomsContainer />
