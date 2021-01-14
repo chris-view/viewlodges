@@ -19,7 +19,7 @@ const RoomsFilter = () => {
     type,
     annualRent,
     occupancy,
-    standByGen,
+    water,
     regions,
     handleChange,
     minPrice,
@@ -35,7 +35,7 @@ const RoomsFilter = () => {
   types = ["All", ...types];
   // map to jsx
   types = types.map((item, index) => (
-    <option key={index} value={item}>
+    <option key={index} value={item} className="format-value">
       {item}
     </option>
   ));
@@ -43,7 +43,7 @@ const RoomsFilter = () => {
   // get schools
   let schools = schoolData.map(item => item.school)
   schools = schools.map((item, index) => (
-    <option key={index} value={item}>
+    <option key={index} value={item} className="format-sch">
       {item}
     </option>
   ));
@@ -80,7 +80,7 @@ const RoomsFilter = () => {
           >
             <option>All</option>
             {regions.map((item, index) => (
-                <option key={index} value={item}>
+                <option key={index} value={item} className="format-value">
                   {item}
                 </option>
               ))
@@ -135,11 +135,11 @@ const RoomsFilter = () => {
           <div className="single-extra">
             <input
               type="checkbox"
-              name="standByGen"
-              checked={standByGen}
+              name="water"
+              checked={water}
               onChange={handleChange}
             />
-            <label htmlFor="standByGen">Standby Gen</label>
+            <label htmlFor="water">Running Water</label>
           </div>
         </div>
         {/* end of extras */}

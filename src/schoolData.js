@@ -65,13 +65,13 @@
     //     region: ["Chapel Bustop","MFM Bustop","Oke-odo|Oko-oba","Staff Quarters","Stalla Marris","Tanke Bubu","Tanke Ille","Tipper Garage"]
     // },
     {
-        school: "UNIPORT",
+        school: "uniport",
         region: ["Alakahia","Aluu","Choba","Choba Extension","Rumousi"]
     },
-    // {
-    //     school: "UNIUYO",
-    //     region: ["Ekpany","Ikpa Road","Itu Road","Udoette","Urua Ikpa"]
-    // },
+    {
+        school: "UNIUYO",
+        region: ["Ekpany","Ikpa Road","Itu Road","Udoette","Urua Ikpa"]
+    },
     // {
     //     school: "UNIZIK",
     //     region: ["Amansea","Aroma","Commissioners Quarter Axis","Ifite","Reginal","School Gate Axis","Tempsite"]

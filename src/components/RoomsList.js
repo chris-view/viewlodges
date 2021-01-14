@@ -11,8 +11,8 @@ const RoomsList = ({ rooms }) => {
   return (
     <section className="roomslist">
       <div className="roomslist-center">
-        {rooms.map(item => {
-          return <Room key={item.id} room={item} />;
+        {rooms.map((item,idx) => {
+          return <Room key={idx} room={item} />;
         })}
       </div>
     </section>

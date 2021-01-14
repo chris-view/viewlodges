@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FaLeanpub, FaUserFriends, FaShuttleVan, FaPaintRoller, FaGasPump, FaLaptop } from "react-icons/fa";
+import { FaUserFriends, FaShuttleVan, FaPaintRoller, FaGasPump } from "react-icons/fa";
 import Title from "./Title";
 
 export default class Services extends Component {
@@ -29,18 +29,18 @@ export default class Services extends Component {
         info:
           "Filling your gas is just a click away."
       },
-      {
-        icon: <FaLaptop/>,
-        title: "software training",
-        info:
-          "Get skilled in sorftware development, and be in command of jobs."
-      },
-      {
-        icon: <FaLeanpub />,
-        title: "project assistance",
-        info:
-          "Our expert teams will assist you in your final year projects and thesis."
-      }
+      // {
+      //   icon: <FaLaptop/>,
+      //   title: "software training",
+      //   info:
+      //     "Get skilled in sorftware development, and be in command of jobs."
+      // },
+      // {
+      //   icon: <FaLeanpub />,
+      //   title: "project assistance",
+      //   info:
+      //     "Our expert teams will assist you in your final year projects and thesis."
+      // }
     ]
   };
   render() {

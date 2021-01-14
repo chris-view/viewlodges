@@ -4,6 +4,7 @@ import Hero from "../components/Hero";
 import Banner from "../components/Banner";
 import RoomsContainer from "../components/RoomsContainer";
 import Services from "../components/Services";
+import Footer from "../components/Footer"
 
 const home = () => {
   return (
@@ -17,6 +18,7 @@ const home = () => {
       </Hero>
       <RoomsContainer />
       <Services />
+      <Footer/>
     </>
   );
 };

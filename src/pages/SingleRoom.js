@@ -1,8 +1,11 @@
 import React, { Component } from "react";
-import defaultBcg from "../images/room-1.jpeg";
 import { Link } from "react-router-dom";
+import { FaFacebook, FaYoutube, FaInstagram, FaCheckCircle} from "react-icons/fa";
 import { RoomContext } from "../context";
-import YoutubeVideo from "../components/YoutubeVideo"
+import YoutubeVideo from "../components/YoutubeVideo";
+import defaultBcg from "../images/VL_fav_white.PNG";
+import defaultAvatar from "../images/default-avatar.jpg";
+import Footer from "../components/Footer";
 export default class SingleRoom extends Component {
   constructor(props) {
     super(props);
@@ -12,14 +15,20 @@ export default class SingleRoom extends Component {
       defaultBcg: defaultBcg
     };
   }
+  // navigate component to the top
+  componentDidMount() {
+  //  window.scrollTo(0, 0);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    });
+  }
   
   static contextType = RoomContext;
 
-  // componentDidMount() {
-  //   console.log(this.props);
-  // }
   render() {
-    const { getRoom } = this.context;
+    const { getRoom, formatPrice } = this.context;
     const room = getRoom(this.state.id);
 
     if (!room) {
@@ -36,7 +45,7 @@ export default class SingleRoom extends Component {
   
       type,
       name,
-//      occupancy,
+      occupancy,
       address,
       size,
       annualRent,
@@ -45,51 +54,60 @@ export default class SingleRoom extends Component {
       capacity,
       junction,
       nameOfCaretaker,
-      phOfCaretaker1,
+      phOfCaretaker,
       phOfCaretaker2,
       avatarCaretaker,
-    //  images
+      youtubeUrl,
+      images,
+      verified
     } = room;
-   // const [main, ...defaultImages] = images;
+    // const [main, ...defaultImages] = images;
+
+  
 
     return (
        <>
         <section className="single-room">
-         
+          
           <div className="single-room-info">
-            <article className="info">
+             <article className="info">
               {// test for when youtube URL is not given and display frontal image instead
               }
-              <YoutubeVideo title = {name}/>
-            </article>
-            <article className="info">
-              <h5 className="format-text">Kindly Subscribe to Stay Updated:</h5>
-              <h6> YouTube : @Viewlodges </h6>
-              <h6> Facebook: @Viewlodges</h6>
-              <h6> Instagram : @Viewlodges </h6>
+              {youtubeUrl ? <YoutubeVideo title = {name} url = {youtubeUrl}/>:<img style={{width:"100%", height:"auto"}} src={images[0] || defaultBcg} alt="frontal"/>}
               
             </article>
+          <article className="info">
+              <h5 className="format-text">Subscribe and Stay Updated:</h5>
+              <a href="https://www.youtube.com/channel/UCJf0a6NnSk6Z7E3E-dY4csg" target="blank"><FaYoutube className="social-icon youtube" /></a>
+              <a href="https://www.facebook.com/viewlodges" target="blank"><FaFacebook className="social-icon facebook" /></a>
+              <Link to="#"><FaInstagram className="social-icon instagram" /></Link><br/><br/><br/>
+              <em style = {{color:"grey", fontSize:"0.7em", lineHeight:"1.5"}}>Kindly Subscribe and Follow us to stay updated when new Lodges are uploaded.</em>
               
+            </article>
+                
             <article className="info">
               <h3>info</h3>
-              <h6>title :<em>{name}</em></h6>
-              <h6>type : <em>{type}</em></h6>
-              <h6>rent cost : <em><b style={{color:"lightGreen"}}> ₦{annualRent}</b></em></h6>
-              <h6>running water : <em className="format-text"> {water ? "available" : "not available"}</em></h6>
-              <h6>occupancy : <em style = {{color:"#ac6f28", fontSize:"0.7em", lineHeight:"1.5"}}>[ Please contact caretaker or agent to confirm current occupancy ] </em></h6>
-              <h6 >Roommates :  <em className="format-text">{capacity < 1 ? `No Restriction`: `${capacity} maximum`}</em> </h6>
+              <h6>title : {name}</h6>
+              <h6>type : {type}</h6>
+              <h6>rent cost : <b style={{color:"lightGreen"}}> {formatPrice(annualRent)}</b></h6>
+              <h6>running water : <span className="format-text"> {water ? "available" : "not available"}</span></h6>
+              <h6>occupancy : { verified ? <>{occupancy ? "Available" : "Occupied"}</> : <em style = {{color:"grey", fontSize:"0.7em", lineHeight:"1.5"}}>[ Please contact caretaker or agent to confirm current occupancy ] </em>}</h6>
+              <h6 >Roommates :  <span className="format-text">{capacity < 1 ? `No Restriction`: `${capacity} maximum`}</span> </h6>
               {size ? <h6>size :  {size} SQFT</h6>:""}
               
             </article>
+            
             <article className="desc">
               <h3>address</h3>
-              <p>{address}</p>
+                <p>{address}</p>
               <br/>
-            <h6>Closest Junction : </h6> {junction}
-              
+              { junction ?
+                <><p style={{fontSize:"medium", fontWeight:"bold"}}>Closest Junction</p> {junction}</>:""
+              }
+             
               <br/>
             </article>
-          </div>
+          </div> 
         </section>
         <section className="room-extras">
           <h6>extras | rules </h6>
@@ -100,16 +118,26 @@ export default class SingleRoom extends Component {
           </ul>
         </section>
         <div style={{display:"flex",justifyContent:"center",alignItems:"center",flexDirection:"column"}}>
-          <img style={{borderRadius:"50%", width:"10em", height:"10em", border: "5px solid #ac6f28"}} src={avatarCaretaker} alt="Caretaker" />
+          <img style={{borderRadius:"50%", width:"10em", height:"10em", border: "5px solid #ac6f28", marginBottom: "1em"}} src={avatarCaretaker || defaultAvatar} alt="Caretaker" />
           <h3>Caretaker</h3>
-          <h6>{nameOfCaretaker}</h6>
-          <p>{phOfCaretaker1 }{phOfCaretaker2 ? `, ${phOfCaretaker2}`:""}</p>
+          <h6 style={{marginBottom:"0"}}>{nameOfCaretaker}</h6>
+          <p>{phOfCaretaker }{phOfCaretaker2 ? `, ${phOfCaretaker2}`:""}</p>
+          {verified? <div style={{color: "rgb(22, 179, 22)"}}>
+            <FaCheckCircle/> Verified
+          </div>:""}
+          
         </div>
+        {verified ? "":
+        <div className="disclaimer">
+          <h4 className="room-extras">Disclaimer:</h4><em>This Lodge has not been verified, please make proper investigations before making any form of payments. To help keep <span>ViewLodges</span> safe for everyone, report it if you find anything frudulent.</em>
+        </div>}
         <div  style={{ display : "flex", alignItems : "center", justifyContent : "center", padding : "2rem"}}>
           <Link to="/" className="btn-primary">
               back 
           </Link>
         </div>
+        
+        <Footer/>
       </>
     );
   }

@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import items from "./data";
+import React, { Component } from "react"; 
+// import items from "./data";
 import schoolData from "./schoolData";
-//import Client from "./Contentful";
+import Client from "./Contentful";
 
 const RoomContext = React.createContext();
 
@@ -16,59 +16,72 @@ export default class RoomProvider extends Component {
     regions: [],
     annualRent: 0,
     occupancy:false,
-    standByGen: false,
+    water: false,
     minPrice: 0,
     maxPrice: 0,
   };
 
-  // getData = async () => {
-  //   try {
-  //     let response = await Client.getEntries({
-  //       content_type: "beachResortRoom"
-  //     });
-  //     let rooms = this.formatData(response.items);
-
-  //     let featuredRooms = rooms.filter(room => room.featured === true);
-  //     //
-  //     let maxPrice = Math.max(...rooms.map(item => item.price));
-  //     let maxSize = Math.max(...rooms.map(item => item.size));
-  //     this.setState({
-  //       rooms,
-  //       sortedRooms: rooms,
-  //       loading: false,
-  //       //
-  //       price: maxPrice,
-  //       maxPrice,
-  //       maxSize
-  //     });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  getData = async () => {
+    try {
+      let response = await Client.getEntries({
+        content_type: "lodgesContentType"
+      });
+      
+      let rooms = this.formatData(response.items);
+      this.shuffleArray(rooms);
+      let boostRooms = rooms.filter(room => room.sponsored === true);
+      rooms = [...boostRooms,...rooms]
+      let maxPrice = Math.max(...rooms.map(item => item.annualRent));
+      this.setState({
+        rooms,
+        sortedRooms: rooms,
+        loading: false,
+        annualRent : maxPrice,
+        maxPrice
+        
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   componentDidMount() {
-    // this.getData();
+    this.getData();
 
-    let rooms = this.formatData(items);
-    // let featuredRooms = rooms.filter(room => room.featured === true);
-    
-    let maxPrice = Math.max(...rooms.map(item => item.annualRent));
-    this.setState({
-      rooms,
-      sortedRooms: rooms,
-      loading: false,
-      annualRent : maxPrice,
-      maxPrice
+
+    // ====> start of local data
+   
+    // let rooms = this.formatData(items);
+    // this.shuffleArray(rooms);
+    // let boostRooms = rooms.filter(room => room.sponsored === true);
+    // rooms = [...boostRooms,...rooms]
+    // let maxPrice = Math.max(...rooms.map(item => item.annualRent));
+    // this.setState({
+    //   rooms,
+    //   sortedRooms: rooms,
+    //   loading: false,
+    //   annualRent : maxPrice,
+    //   maxPrice
       
-    });
+    // });
+    
+    //===> end of local data
   }
-
+  shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+      }
+  }
   formatData(items) {
       let tempItems = items.map(item => {
       let id = item.sys.id;
       let images = item.fields.images.map(image => image.fields.file.url);
-
-      let room = { ...item.fields, images, id };
+      let avatarCaretaker = "";
+      if (item.fields.avatarCaretaker ){// comment out when dealing with local data
+          avatarCaretaker = item.fields.avatarCaretaker.fields.file.url;
+      }
+      let room = { ...item.fields, images, id, avatarCaretaker };
       return room;
     });
     return tempItems;
@@ -78,19 +91,22 @@ export default class RoomProvider extends Component {
     const room = tempRooms.find(room => room.id === id);
     return room;
   };
+
+  formatPrice = price => "₦"+price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
   handleChange = event => {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
     
-    if(name === "school"){//check to update regions
+    if( name === "school" ){//check to update regions
       
       let regionList = schoolData.find(item => item.school === value);
       this.setState({regions:regionList.region});
     }
 
     // Condition to update data accordingly even after school is changed to show all
-    if(name === "school"){
+    if( name === "school" ){
       this.setState(
         {
           school: value,
@@ -115,7 +131,7 @@ export default class RoomProvider extends Component {
       type,
       annualRent,
       occupancy,
-      standByGen
+      water
       
     } = this.state; 
 
@@ -146,9 +162,9 @@ export default class RoomProvider extends Component {
     if (occupancy) {
       tempRooms = tempRooms.filter(room => room.occupancy === true);
     }
-    //filter by steaby gen
-    if (standByGen) {
-      tempRooms = tempRooms.filter(room => room.standByGen === true);
+    //filter by running water
+    if (water) {
+      tempRooms = tempRooms.filter(room => room.water === true);
     }
     this.setState({
       sortedRooms: tempRooms
@@ -160,7 +176,8 @@ export default class RoomProvider extends Component {
         value={{
           ...this.state,
           getRoom: this.getRoom,
-          handleChange: this.handleChange
+          handleChange: this.handleChange,
+          formatPrice : this.formatPrice,
         }}
       >
         {this.props.children}

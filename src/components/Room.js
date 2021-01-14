@@ -1,21 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import defaultImg from "../images/room-1.jpeg";
+import { useContext } from "react";
+import { RoomContext } from "../context";
 import PropTypes from "prop-types";
 import { memo } from "react";
+import { Link } from "react-router-dom";
+import {FaCheckCircle} from "react-icons/fa"
+import defaultImg from "../images/VL_fav_white.PNG";
+
 const Room = memo(({ room }) => {
-  const {id, images, annualRent, region, type, occupancy } = room;
-  
+  const {id, images, annualRent, region, type, occupancy, verified } = room;
+  const context = useContext(RoomContext);
+  const {formatPrice} = context;
+ 
   return (
     <article className="room">
       <div className="img-container">
         <Link to={`/rooms/${id}`} >
           <img src={images[0] || defaultImg} alt="single room" />
         </Link>
-        {/* <div className="price-top">
-          <h6>FREE</h6>
-          <p>VIEW</p>
-        </div> */}
+        {verified ? <div className="verified">
+          <FaCheckCircle/> Verified
+        </div>:""}
         
       </div>
       <div>
@@ -23,7 +28,7 @@ const Room = memo(({ room }) => {
         <article className="info">
           <h6>Region : {region}</h6>
           <h6>Type : {type}</h6>
-          <h6>rent cost : ₦{annualRent}</h6>
+          <h6>rent cost : {formatPrice(annualRent)}</h6>
         </article>
       </div>
       <div className="room-info">
