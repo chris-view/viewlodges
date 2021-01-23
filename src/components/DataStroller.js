@@ -18,12 +18,19 @@ function DataStroller() {
     const [hasMore, setHasMore] = useState(true);
     const [current, setCurrent] = useState(sortedRooms.slice(count.prev, count.next))
     
-    useEffect(() => {
+   useEffect(() => {
         setCount(({ prev: 0, next: 10 }))
         setHasMore(true);
         setCurrent(sortedRooms.slice(0, 10))
         
     }, [sortedRooms])
+    useEffect(() =>{
+        if (current.length === sortedRooms.length) {
+            setHasMore(false);
+            return;
+        }
+    },[current.length, sortedRooms.length])
+    
     const getMoreData = () => {
     if (current.length === sortedRooms.length) {
         setHasMore(false);
