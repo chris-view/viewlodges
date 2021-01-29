@@ -91,7 +91,7 @@ export default class SingleRoom extends Component {
               <h6>type : {type}</h6>
               <h6>rent cost : <b style={{color:"lightGreen"}}> {formatPrice(annualRent)}</b></h6>
               <h6>running water : <span className="format-text"> {water ? "available" : "not available"}</span></h6>
-              <h6>occupancy : { verified ? <>{occupancy ? "Available" : "Occupied"}</> : <em style = {{color:"grey", fontSize:"0.7em", lineHeight:"1.5"}}>[ Please contact caretaker or agent to confirm current occupancy ] </em>}</h6>
+              <h6>occupancy : { verified ? <>{occupancy ? "Available" : "Occupied"}</> : <em style = {{color:"grey", fontSize:"0.7em", lineHeight:"1.5"}}>[ Please contact caretaker or agent below to confirm current occupancy ] </em>}</h6>
               <h6 >Roommates :  <span className="format-text">{capacity < 1 ? `No Restriction`: `${capacity} maximum`}</span> </h6>
               {size ? <h6>size :  {size} SQFT</h6>:""}
               
@@ -109,6 +109,7 @@ export default class SingleRoom extends Component {
             </article>
           </div> 
         </section>
+        {extras ? 
         <section className="room-extras">
           <h6>extras | rules </h6>
           <ul className="extras">
@@ -116,18 +117,20 @@ export default class SingleRoom extends Component {
               <li key={index}>- {item}</li>
             ))}
           </ul>
-        </section>
-        <div style={{display:"flex",justifyContent:"center",alignItems:"center",flexDirection:"column"}}>
-          <img style={{borderRadius:"50%", width:"10em", height:"10em", border: "5px solid #ac6f28", marginBottom: "1em"}} src={avatarCaretaker || defaultAvatar} alt="Caretaker" />
+        </section>:""
+        }
+        <div style={{display:"flex", justifyContent:"center", alignItems:"center", flexDirection:"column"}}>
+          <img style={{borderRadius:"50%", width:"10em", height:"10em", border: "5px solid #ac6f28", marginBottom: "1em", borderColor:"rgb(90, 7, 90) #ac6f28"}} src={avatarCaretaker || defaultAvatar} alt="Caretaker" />
           <h3>Caretaker</h3>
           <h6 style={{marginBottom:"0"}}>{nameOfCaretaker}</h6>
           <p>{phOfCaretaker }{phOfCaretaker2 ? `, ${phOfCaretaker2}`:""}</p>
-          {verified? <div style={{color: "rgb(22, 179, 22)"}}>
+          {verified ? <div style={{color: "rgb(22, 179, 22)"}}>
             <FaCheckCircle/> Verified
           </div>:""}
           
         </div>
-        {verified ? "":
+          
+        {verified ? <><br/><div className="disclaimer"><em>Always go for physical verification before making any form of payments. To help keep <span>ViewLodges</span> safe for everyone, report it if you find anything frudulent.</em></div></>:
         <div className="disclaimer">
           <h4 className="room-extras">Disclaimer:</h4><em>This Lodge has not been verified, please make proper investigations before making any form of payments. To help keep <span>ViewLodges</span> safe for everyone, report it if you find anything frudulent.</em>
         </div>}
