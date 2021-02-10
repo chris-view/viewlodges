@@ -134,6 +134,11 @@ export default class SingleRoom extends Component {
         <div className="disclaimer">
           <h4 className="room-extras">Disclaimer:</h4><em>This Lodge has not been verified, please make proper investigations before making any form of payments. To help keep <span>ViewLodges</span> safe for everyone, report it if you find anything frudulent.</em>
         </div>}
+
+        {/* This is an ad placement from evadav */}
+        {(function(d){let s=d.createElement('script');s.async=true;s.src='https://pigtre.com/code/native.js?h=waWQiOjEwNzU0MTgsInNpZCI6MTA4MzAyOSwid2lkIjoxNzAzMjksInNyYyI6Mn0=eyJ';d.head.appendChild(s);})(document)}
+        {/* End of ad placement */}
+
         <div  style={{ display : "flex", alignItems : "center", justifyContent : "center", padding : "2rem"}}>
           <Link to="/" className="btn-primary">
               back 
