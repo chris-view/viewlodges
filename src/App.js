@@ -11,7 +11,6 @@ import Navbar from "./components/Navbar";
 
 import { Switch, Route } from "react-router-dom";
 
-import ""
 function App() {
   return (
     <>
