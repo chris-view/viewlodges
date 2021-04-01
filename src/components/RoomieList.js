@@ -8,7 +8,7 @@ import AdWrapper from "./AdWrapper"
 
 const RoomieList = ({ roommies }) => {
   const context = useContext(RoomContext);
-  const {school, region} = context;
+  const {region} = context;
   if (roommies.length === 0) {
     if(region.toLowerCase() !== "all"){
       return (

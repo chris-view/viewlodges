@@ -6,7 +6,7 @@ import { memo } from "react";
 import { Link } from "react-router-dom";
 import {FaCheckCircle} from "react-icons/fa"
 import defaultImg from "../images/VL_fav_white.PNG";
-import AdWrapper from "./AdWrapper";
+// import AdWrapper from "./AdWrapper";
 
 const RoomCard = memo(({ room }) => {
   const {id, images, annualRent, region, type, occupancy, verified } = room;

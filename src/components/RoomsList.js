@@ -4,7 +4,7 @@ import { useContext} from "react";
 import { RoomContext } from "../context";
 import { FaFacebook, FaYoutube, FaInstagram} from "react-icons/fa";
 import RoomCard from "./RoomCard";
-import AdWrapper from "./AdWrapper"
+// import AdWrapper from "./AdWrapper"
 
 const RoomsList = ({ rooms }) => {
   const context = useContext(RoomContext);
