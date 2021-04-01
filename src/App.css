@@ -98,7 +98,7 @@ h6 {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 0.7rem 2rem;
+  padding: 0.5rem 2rem;
   background: black;
   z-index: 2;
   transition: var(--mainTransition);
@@ -230,6 +230,8 @@ h6 {
   }
 }
 /* end of navbar */
+
+
 /* Hero */
 .roomsHero {
   min-height: 60vh;
@@ -299,6 +301,47 @@ h6 {
   background: var(--primaryColor);
 }
 /* end of Title */
+
+/* Start of Sort Button */
+
+.sort-container {
+  display : flex;
+  justify-content: space-around;
+  width : 100%;
+  background-color: var(--darkGrey);
+  padding : 0px;
+
+}
+
+.basic-sort {
+  background-color: black;
+  padding: 15px;
+  margin : 10px;
+  margin-bottom: 0px;
+  color : white;
+  border-radius: 10%;
+  transition: var(--mainTransition);
+}
+
+.active-sort {
+  background-color: var(--primaryColor);
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  transition: var(--mainTransition);
+}
+
+.show-sort-icon {
+  color : var(--primaryColor);
+  font-size: larger;
+  text-align: center;
+  transition: var(--mainTransition);
+}
+
+.hide-sort-icon {
+  display: none;
+  transition: var(--mainTransition);
+}
+/* End of Sort Button */
 
 /* services */
 .services {
@@ -430,7 +473,7 @@ h6 {
   margin-right:0.5rem;
 }
 .available{
-  background: lightgreen;
+  background: rgb(24, 151, 24);
 }
 .occupied{
   background: var(--darkGrey);;
@@ -568,6 +611,33 @@ h6 {
   
 }
 /* end of single room*/
+
+/* Start of roomie */
+.center-align-roomie {
+  display: flex;
+  justify-content: center;
+}
+.avatar {
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 100px;
+}
+
+.avatar:not(:first-child) {
+  margin-left: -60px;
+  -webkit-mask:radial-gradient(circle 55px at 5px 50%,transparent 99%,#fff 100%);
+          mask:radial-gradient(circle 55px at 5px 50%,transparent 99%,#fff 100%);
+}
+
+.avatar img {
+  width: 100%;
+  display: block;
+}
+
+
+/* End of roomie  */
+
 /* roomlist */
 .roomslist {
   padding: 5rem 0;

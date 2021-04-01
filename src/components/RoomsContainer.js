@@ -9,7 +9,7 @@ import DataStroller from './DataStroller';
 function RoomContainer() {
   const context = useContext(RoomContext);
   const { loading} = context;
-  // const { loading, sortedRooms} = context;
+  
  return (
     <>
       <RoomsFilter />

@@ -4,13 +4,16 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { RoomProvider } from "./context";
+import { RoommieProvider } from "./roommieContext";
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <RoomProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+     <RoommieProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+     </RoommieProvider>
   </RoomProvider>,
   document.getElementById("root")
 );

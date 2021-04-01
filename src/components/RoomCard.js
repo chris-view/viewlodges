@@ -6,8 +6,9 @@ import { memo } from "react";
 import { Link } from "react-router-dom";
 import {FaCheckCircle} from "react-icons/fa"
 import defaultImg from "../images/VL_fav_white.PNG";
+import AdWrapper from "./AdWrapper";
 
-const Room = memo(({ room }) => {
+const RoomCard = memo(({ room }) => {
   const {id, images, annualRent, region, type, occupancy, verified } = room;
   const context = useContext(RoomContext);
   const {formatPrice} = context;
@@ -15,7 +16,7 @@ const Room = memo(({ room }) => {
   return (
     <article className="room">
       <div className="img-container">
-        <Link to={`/rooms/${id}`} >
+        <Link to={`/lodges/${id}`} >
           <img src={images[0] || defaultImg} alt="single room" />
         </Link>
         {verified ? <div className="verified">
@@ -32,7 +33,7 @@ const Room = memo(({ room }) => {
         </article>
       </div>
       <div className="room-info">
-        <Link to={`/rooms/${id}`} className="btn-room">
+        <Link to={`/lodges/${id}`} className="btn-room">
           See Details
         </Link>
       </div>
@@ -40,7 +41,7 @@ const Room = memo(({ room }) => {
   );
 });
 
-Room.propTypes = {
+RoomCard.propTypes = {
   room: PropTypes.shape({
     region: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
@@ -49,4 +50,4 @@ Room.propTypes = {
     annualRent: PropTypes.number.isRequired
   })
 };
-export default Room;
+export default RoomCard;

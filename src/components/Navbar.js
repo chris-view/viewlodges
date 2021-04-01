@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaHome, FaCloudUploadAlt, FaDiceSix} from "react-icons/fa";
+import { FaHome, FaCloudUploadAlt, FaDiceSix, FaUserFriends} from "react-icons/fa";
 import logo from "../images/VL_logo_black.PNG";
  const Navbar = () => {
   const [toggle, setToggle] = useState(false)
@@ -40,6 +40,9 @@ import logo from "../images/VL_logo_black.PNG";
             </li> */}
             <li className="push" onClick = {hideNav}>
                  <Link to="/upload_lodge"><FaCloudUploadAlt className="side-icon" />Upload Lodge</Link>
+            </li>
+            <li className="push" onClick = {hideNav}>
+                 <Link to="/"><FaUserFriends className="side-icon" />Request Roommies</Link>
             </li>
           </ul>
         </div>

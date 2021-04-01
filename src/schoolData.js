@@ -3,6 +3,10 @@
         school: "All",
         region: []
     },
+    {
+        school: "UNIPORT",
+        region: ["Alakahia","Aluu","Choba","Choba Extension","Rumousi"]
+    },
     
     {
         school: "ABIA-POLY",
@@ -63,10 +67,6 @@
     {
         school: "UNILORIN",
         region: ["Chapel Bustop","MFM Bustop","Oke-odo|Oko-oba","Staff Quarters","Stalla Marris","Tanke Bubu","Tanke Ille","Tipper Garage"]
-    },
-    {
-        school: "UNIPORT",
-        region: ["Alakahia","Aluu","Choba","Choba Extension","Rumousi"]
     },
     {
         school: "UNIUYO",

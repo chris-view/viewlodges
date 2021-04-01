@@ -14,8 +14,8 @@ import img9 from "./images/room-9.jpeg";
 import img10 from "./images/room-10.jpeg";
 import img11 from "./images/room-11.jpeg";
 import img12 from "./images/room-12.jpeg";
-import caretaker1 from "./images/CaretakerPhoto.jpg";
-import caretaker2 from "./images/CaretakerPhoto1.jpg";
+import caretaker1 from "./images/RoomiePhoto.png";
+import caretaker2 from "./images/RoomiePhoto.png";
 
 
 const data = [

@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useContext, useEffect } from "react";
-import { RoomContext } from "../context";
+import { RoommieContext } from "../roommieContext";
 import InfiniteScroll from 'react-infinite-scroll-component';
-import RoomsList from './RoomsList';
+import RoomieList from './RoomieList';
 import Loading from "./Loading";
 
-function DataStroller() {
+function RoommieStroller() {
 
-    const context = useContext(RoomContext)
-    const { sortedRooms} = context;
+    const context = useContext(RoommieContext)
+    const { sortedRoommies} = context;
 
     const [count, setCount] = useState({
         prev: 0,
@@ -16,51 +16,50 @@ function DataStroller() {
     })
 
     const [hasMore, setHasMore] = useState(true);
-    const [current, setCurrent] = useState(sortedRooms.slice(count.prev, count.next))
+    const [current, setCurrent] = useState(sortedRoommies.slice(count.prev, count.next))
     
    useEffect(() => {
         setCount(({ prev: 0, next: 10 }))
         setHasMore(true);
-        setCurrent(sortedRooms.slice(0, 10))
+        setCurrent(sortedRoommies.slice(0, 10))
         
-    }, [sortedRooms])
+    }, [sortedRoommies])
     useEffect(() =>{
-        if ((current.length === sortedRooms.length) || (sortedRooms.length === 0) || sortedRooms.length < current.length) {
+        if ((current.length === sortedRoommies.length) || (sortedRoommies.length === 0) || sortedRoommies.length < current.length) {
             setHasMore(false);
             return;
         }
-    },[current.length, sortedRooms.length, sortedRooms])
+    },[current.length, sortedRoommies.length, sortedRoommies])
     
     const getMoreData = () => {
-    if ((current.length === sortedRooms.length)) {
+    if (current.length === sortedRoommies.length) {
         setHasMore(false);
         return;
     }
-    
     setTimeout(() => {
-        setCurrent(current.concat(sortedRooms.slice(count.prev + 10, count.next + 10)))
+        setCurrent(current.concat(sortedRoommies.slice(count.prev + 10, count.next + 10)))
     }, 2000)
     setCount((prevState) => ({ prev: prevState.prev + 10, next: prevState.next + 10 }))
     }
     
     return (
-        <div id="scrollableDiv" style={{height:"100vh", overflow:"auto"}} >
+        <div id="roommieStrollableDiv" style={{height:"100vh", overflow:"auto"}} >
             <InfiniteScroll
                 dataLength = {current.length}
                 next = {getMoreData}
                 hasMore = {hasMore}
                 loader = {<Loading />}
-                scrollableTarget = "scrollableDiv"
+                scrollableTarget = "roommieStrollableDiv"
                 // endMessage={
                 //     <p>
                 //     <b>Yay! You have seen it all</b>
                 //     </p>
                 // }
                 >
-                    <RoomsList rooms={current} />
+                    <RoomieList roommies={current} />
             </InfiniteScroll>
         </div>
     )
 }
 
-export default DataStroller
+export default RoommieStroller

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { FaFacebook, FaYoutube, FaInstagram, FaCheckCircle} from "react-icons/fa";
+import { FaFacebook, FaYoutube, FaInstagram, FaCheckCircle, FaWhatsapp} from "react-icons/fa";
 import { RoomContext } from "../context";
 import YoutubeVideo from "../components/YoutubeVideo";
 import defaultBcg from "../images/VL_fav_white.PNG";
@@ -120,10 +120,20 @@ export default class SingleRoom extends Component {
         </section>:""
         }
         <div style={{display:"flex", justifyContent:"center", alignItems:"center", flexDirection:"column"}}>
-          <img style={{borderRadius:"50%", width:"10em", height:"10em", border: "5px solid #ac6f28", marginBottom: "1em", borderColor:"rgb(90, 7, 90) #ac6f28"}} src={avatarCaretaker || defaultAvatar} alt="Caretaker" />
+          <img style={{borderRadius:"50%", width:"10em", height:"10em", border: "5px solid #ac6f28", marginBottom: "1em"}} src={avatarCaretaker || defaultAvatar} alt="Caretaker" />
           <h3>Caretaker</h3>
           <h6 style={{marginBottom:"0"}}>{nameOfCaretaker}</h6>
           <p>{phOfCaretaker }{phOfCaretaker2 ? `, ${phOfCaretaker2}`:""}</p>
+          <a style ={{textDecoration:"none"}}  href={`https://wa.me/2348141108125?text=Hi,%20I%20saw%20${name}%20on%20%20Viewlodges.com.ng`} target="blank">   
+            <div style={{display:"flex", justifyContent:"center", alignItems:"center", margin:"1rem 0 0.5rem 0"}}>
+              <div style={{width:"10em", height:"3em", backgroundColor:"black", borderRadius:"3em", padding:"0.4em 1em 0 1em", border: "0.2em solid #ac6f28"}}>
+                  <span><FaWhatsapp style={{color:"green", width:"1.5em", height:"1.5em", float:"left"}}/></span>
+                  <span style={{color:"white", float:"right"}}>Send DM</span>
+              
+              </div>  
+            </div>
+          </a> 
+        
           {verified ? <div style={{color: "rgb(22, 179, 22)"}}>
             <FaCheckCircle/> Verified
           </div>:""}
@@ -134,10 +144,6 @@ export default class SingleRoom extends Component {
         <div className="disclaimer">
           <h4 className="room-extras">Disclaimer:</h4><em>This Lodge has not been verified, please make proper investigations before making any form of payments. To help keep <span>ViewLodges</span> safe for everyone, report it if you find anything frudulent.</em>
         </div>}
-
-        {/* This is an ad placement from evadav */}
-        {(function(d){let s=d.createElement('script');s.async=true;s.src='https://pigtre.com/code/native.js?h=waWQiOjEwNzU0MTgsInNpZCI6MTA4MzAyOSwid2lkIjoxNzAzMjksInNyYyI6Mn0=eyJ';d.head.appendChild(s);})(document)}
-        {/* End of ad placement */}
 
         <div  style={{ display : "flex", alignItems : "center", justifyContent : "center", padding : "2rem"}}>
           <Link to="/" className="btn-primary">

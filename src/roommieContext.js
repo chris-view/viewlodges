@@ -1,24 +1,26 @@
 import React, { Component } from "react"; 
-import items from "./data";
+import items from "./roommieData";
 import schoolData from "./schoolData";
 import Client from "./Contentful";
 
-const RoomContext = React.createContext();
+const RoommieContext = React.createContext();
 
-export default class RoomProvider extends Component {
+export default class RoommieProvider extends Component {
   state = {
     rooms: [],
+    roommies: [],
+
     sortedRooms: [],
+    sortedRoommies: [],
+
     loading: true,
     school: "All",
     region: "All",
     type: "All",
     regions: [],
-    annualRent: 0,
-    occupancy:false,
-    water: false,
-    minPrice: 0,
-    maxPrice: 0,
+    gender: "Any",
+    level: "Any"
+   
   };
 
   getData = async () => {
@@ -46,24 +48,23 @@ export default class RoomProvider extends Component {
   };
 
   componentDidMount() {
-   this.getData();
+   // this.getData();
 
 
     // ====> start of local data
    
-    // let rooms = this.formatData(items);
-    // this.shuffleArray(rooms);
-    // let boostRooms = rooms.filter(room => room.sponsored === true);
-    // rooms = [...boostRooms,...rooms]
-    // let maxPrice = Math.max(...rooms.map(item => item.annualRent));
-    // this.setState({
-    //   rooms,
-    //   sortedRooms: rooms,
-    //   loading: false,
-    //   annualRent : maxPrice,
-    //   maxPrice
-      
-    // });
+    let roommies = this.formatData(items);
+
+    roommies = []; // comment this out after uploading
+
+
+    this.shuffleArray(roommies);
+    this.setState({
+      roommies,
+      sortedRoommies: roommies,
+      loading: false,
+     
+    });
     
     //===> end of local data
   }
@@ -76,25 +77,22 @@ export default class RoomProvider extends Component {
   formatData(items) {
       let tempItems = items.map(item => {
       let id = item.sys.id;
-      let images = item.fields.images.map(image => image.fields.file.url);
-      let avatarCaretaker = "";
-      if (item.fields.avatarCaretaker ){// comment out when dealing with local data
-          avatarCaretaker = item.fields.avatarCaretaker.fields.file.url;
-      }
-      let room = { ...item.fields, images, id, avatarCaretaker };
-      return room;
+      let roommieAvatar = item.fields.roommieAvatar.map(image => image.fields.file.url);
+      let lodgeAvatar = item.fields.lodgeAvatar.map(image => image.fields.file.url);
+      let roommie = { ...item.fields, id, roommieAvatar, lodgeAvatar };
+      return roommie;
     });
     return tempItems;
   }
-  getRoom = id => {
-    let tempRooms = [...this.state.rooms];
-    const room = tempRooms.find(room => room.id === id);
-    return room;
+  getRoommie = id => {
+    let tempRooms = [...this.state.roommies];
+    const roommie = tempRooms.find(roommie => roommie.id === id);
+    return roommie;
   };
 
   formatPrice = price => "₦"+price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-  handleChange = event => {
+  handleRoommieChange = event => {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
@@ -125,66 +123,60 @@ export default class RoomProvider extends Component {
   };
   filterRooms = () => {
     let {
-      rooms,
+      roommies,
       school,
       region,
       type,
-      annualRent,
-      occupancy,
-      water
+      level,
+      gender
       
     } = this.state; 
 
-    let tempRooms = [...rooms];
+    let tempRoommies = [...roommies];
     // transform values
-    
-    annualRent = parseInt(annualRent); 
-
     
     // filter by school
     if (school.toLowerCase() !== "all") {
-      tempRooms = tempRooms.filter(room => room.school.toLowerCase() === school.toLowerCase());
+      tempRoommies = tempRoommies.filter(roommie => roommie.school.toLowerCase() === school.toLowerCase());
     }
 
     // filter by region
     if (region.toLowerCase() !== "all") {
-      tempRooms = tempRooms.filter(room => room.region.toLowerCase() === region.toLowerCase());
+      tempRoommies = tempRoommies.filter(roommie => roommie.region.toLowerCase() === region.toLowerCase());
     }
 
     // filter by type
     if (type.toLowerCase() !== "all") {
-      tempRooms = tempRooms.filter(room => room.type.toLowerCase() === type.toLocaleLowerCase());
+      tempRoommies = tempRoommies.filter(roommie => roommie.type.toLowerCase() === type.toLocaleLowerCase());
+    }
+    // filter by level
+    if (level.toLowerCase() !== "any") {
+      tempRoommies = tempRoommies.filter(roommie => roommie.level.toLowerCase() === level.toLocaleLowerCase());
+    }
+    // filter by gender
+    if (gender.toLowerCase() !== "any") {
+      tempRoommies = tempRoommies.filter(roommie => roommie.gender.toLowerCase() === gender.toLocaleLowerCase());
     }
     
-    // filter by price
-    tempRooms = tempRooms.filter(room => room.annualRent <= annualRent);
-    //filter by occupancy
-    if (occupancy) {
-      tempRooms = tempRooms.filter(room => room.occupancy === true);
-    }
-    //filter by running water
-    if (water) {
-      tempRooms = tempRooms.filter(room => room.water === true);
-    }
     this.setState({
-      sortedRooms: tempRooms
+      sortedRoommies: tempRoommies
     });
   };
   render() {
     return (
-      <RoomContext.Provider
+      <RoommieContext.Provider
         value={{
           ...this.state,
-          getRoom: this.getRoom,
-          handleChange: this.handleChange,
+          getRoommie: this.getRoommie,
+          handleRoommieChange: this.handleRoommieChange,
           formatPrice : this.formatPrice,
         }}
       >
         {this.props.children}
-      </RoomContext.Provider>
+      </RoommieContext.Provider>
     );
   }
 }
 
-export { RoomProvider, RoomContext };
+export { RoommieProvider, RoommieContext };
 

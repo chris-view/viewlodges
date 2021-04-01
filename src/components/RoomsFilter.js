@@ -70,7 +70,7 @@ const RoomsFilter = () => {
 
          {/* regions  */}
          <div className="form-group">
-          <label htmlFor="region">Region</label>
+          <label htmlFor="region">Preferred Region</label>
           <select
             name="region"
             id="region"
@@ -78,12 +78,15 @@ const RoomsFilter = () => {
             className="form-control"
             value={region}
           >
-            <option>All</option>
-            {regions.map((item, index) => (
-                <option key={index} value={item} className="format-value">
-                  {item}
-                </option>
-              ))
+           {regions.length < 1 ?  <option>[First select school]</option> :
+              <>
+                  <option>All</option>
+                  {regions.map((item, index) => (
+                      <option key={index} value={item} className="format-value">
+                      {item}
+                      </option>
+                  ))}
+              </>
             }
           </select>
         </div>
