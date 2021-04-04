@@ -60,7 +60,10 @@ export default class Roommie_Profile extends Component {
       isRoommieFound
     } = roommie;
    
-  
+    let a = contact.split("")
+    a.shift()
+    contact = a.join("")
+
 
     return (
        <>

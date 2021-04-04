@@ -23,6 +23,7 @@ export default class SingleRoom extends Component {
       left: 0,
       behavior: "smooth"
     });
+   
   }
   
   static contextType = RoomContext;
@@ -62,6 +63,14 @@ export default class SingleRoom extends Component {
       verified
     } = room;
     // const [main, ...defaultImages] = images;
+    let contact = phOfCaretaker;
+    console.log("about to test contact", contact)
+    let a = contact.split("")
+    a.shift()
+    contact = a.join("")
+
+    console.log("after processing contact", contact)
+    
 
   
 
@@ -124,7 +133,7 @@ export default class SingleRoom extends Component {
           <h3>Caretaker</h3>
           <h6 style={{marginBottom:"0"}}>{nameOfCaretaker}</h6>
           <p>{phOfCaretaker }{phOfCaretaker2 ? `, ${phOfCaretaker2}`:""}</p>
-          <a style ={{textDecoration:"none"}}  href={`https://wa.me/2348141108125?text=Hi,%20I%20saw%20${name}%20on%20%20Viewlodges.com.ng`} target="blank">   
+          <a style ={{textDecoration:"none"}}  href={`https://wa.me/234${contact}?text=Hi,%20I%20saw%20${name}%20on%20%20Viewlodges.com.ng`} target="blank">   
             <div style={{display:"flex", justifyContent:"center", alignItems:"center", margin:"1rem 0 0.5rem 0"}}>
               <div style={{width:"10em", height:"3em", backgroundColor:"black", borderRadius:"3em", padding:"0.4em 1em 0 1em", border: "0.2em solid #ac6f28"}}>
                   <span><FaWhatsapp style={{color:"green", width:"1.5em", height:"1.5em", float:"left"}}/></span>
