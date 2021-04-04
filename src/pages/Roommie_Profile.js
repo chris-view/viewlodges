@@ -63,7 +63,7 @@ export default class Roommie_Profile extends Component {
     // convert to whatsapp linkable number
     let a = contact.split("")
     a.shift()
-    contact = a.join("")
+    let whatsappContact = a.join("")
 
 
     return (
@@ -121,7 +121,7 @@ export default class Roommie_Profile extends Component {
         }
         {!isRoommieFound ?
         <>
-          <a style ={{textDecoration:"none"}}  href={`https://wa.me/234${contact}?text=Hi,%20I%20saw%20your%20roommate%20request%20on%20Viewlodges.com.ng`} target="blank">
+          <a style ={{textDecoration:"none"}}  href={`https://wa.me/234${whatsappContact}?text=Hi,%20I%20saw%20your%20roommate%20request%20on%20Viewlodges.com.ng`} target="blank">
             <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
               <div style={{width:"10em", height:"3em", backgroundColor:"black", borderRadius:"3em", padding:"0.4em 1em 0 1em", border: "0.2em solid #ac6f28"}}>
                   <span><FaWhatsapp style={{color:"green", width:"1.5em", height:"1.5em", float:"left"}}/></span>
