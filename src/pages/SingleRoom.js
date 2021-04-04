@@ -63,16 +63,12 @@ export default class SingleRoom extends Component {
       verified
     } = room;
     // const [main, ...defaultImages] = images;
+
+    // convert to whatsapp linkable number
     let contact = phOfCaretaker;
-    console.log("about to test contact", contact)
     let a = contact.split("")
     a.shift()
     contact = a.join("")
-
-    console.log("after processing contact", contact)
-    
-
-  
 
     return (
        <>

@@ -60,6 +60,7 @@ export default class Roommie_Profile extends Component {
       isRoommieFound
     } = roommie;
    
+    // convert to whatsapp linkable number
     let a = contact.split("")
     a.shift()
     contact = a.join("")
