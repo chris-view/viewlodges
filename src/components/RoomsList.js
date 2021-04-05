@@ -5,6 +5,7 @@ import { RoomContext } from "../context";
 import { FaFacebook, FaYoutube, FaInstagram} from "react-icons/fa";
 import RoomCard from "./RoomCard";
 // import AdWrapper from "./AdWrapper"
+import GoogleAd from "./GoogleAd";
 
 const RoomsList = ({ rooms }) => {
   const context = useContext(RoomContext);
@@ -20,7 +21,7 @@ const RoomsList = ({ rooms }) => {
       return (
         <div className="empty-search">
           <h5>unfortunately, we are yet to receive lodges around {school}! </h5><br/>
-          <a href="https://www.youtube.com/channel/UCJf0a6NnSk6Z7E3E-dY4csg" target="blank"><FaYoutube className="social-icon youtube" /></a>
+          <a href="https://gleDwww.youtube.com/channel/UCJf0a6NnSk6Z7E3E-dY4csg" target="blank"><FaYoutube className="social-icon youtube" /></a>
           <a href="https://www.facebook.com/viewlodges" target="blank"><FaFacebook className="social-icon facebook" /></a>
           <Link to="#"><FaInstagram className="social-icon instagram" /></Link><br/><br/><br/>
           <em style = {{color:"grey", fontSize:"0.7em", lineHeight:"1.5"}}>Kindly Follow us to stay updated when Lodges around {school} are uploaded.</em>
@@ -39,9 +40,9 @@ const RoomsList = ({ rooms }) => {
          if((idx+1)%5===0){ // set to show ads after every four lodge views
            return(
            <React.Fragment key = {idx}>
-              {/* <div >
-                <AdWrapper  /> remove comment to show ads
-              </div> */}
+              <div >
+               <GoogleAd slot="394738798" timeout={1000}  />
+              </div>
               <div >
                 <RoomCard room={item}/>
               </div>
