@@ -41,7 +41,7 @@ const RoomsList = ({ rooms }) => {
            return(
            <React.Fragment key = {idx}>
               <div >
-               <GoogleAd slot="3260275277" timeout={1000}  />
+               <GoogleAd slot="7345832275" timeout={1000}  />
               </div>
               <div >
                 <RoomCard room={item}/>
