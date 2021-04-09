@@ -74,7 +74,7 @@ export default class SingleRoom extends Component {
     return (
        <>
         <section className="single-room">
-          <GoogleAd slot="3260275277" timeout={1000} />
+          <GoogleAd type = "rectangle" timeout={1000} />
           <div className="single-room-info">
              <article className="info">
               {// test for when youtube URL is not given and display frontal image instead
