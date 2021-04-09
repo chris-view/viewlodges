@@ -37,11 +37,11 @@ const RoomsList = ({ rooms }) => {
          
          // Display ads after every four lodge views
          
-         if((idx+1)%5===0){ // set to show ads after every four lodge views
+         if((idx+1)%4 === 0){ // set to show ads after every three lodge views
            return(
            <React.Fragment key = {idx}>
               <div >
-               <GoogleAd slot="394738798" timeout={1000}  />
+               <GoogleAd slot="3260275277" timeout={1000}  />
               </div>
               <div >
                 <RoomCard room={item}/>
