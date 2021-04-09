@@ -6,7 +6,6 @@ import YoutubeVideo from "../components/YoutubeVideo";
 import defaultBcg from "../images/VL_fav_white.PNG";
 import defaultAvatar from "../images/default-avatar.jpg";
 import Footer from "../components/Footer";
-import GoogleAd2 from "../components/GoogleAd2";
 export default class SingleRoom extends Component {
   constructor(props) {
     super(props);
@@ -74,7 +73,7 @@ export default class SingleRoom extends Component {
     return (
        <>
         <section className="single-room">
-          <GoogleAd2 type = "rectangle" timeout={1000} />
+          
           <div className="single-room-info">
              <article className="info">
               {// test for when youtube URL is not given and display frontal image instead
