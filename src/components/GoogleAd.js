@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const googleAdId = 'ca-pub-7280354271908100';
+// const googleAdId = 'ca-pub-7280354271908100';
 
 class GoogleAd extends Component {
   googleInit = null;
