@@ -19,14 +19,14 @@ class GoogleAd2 extends Component {
   render() {
 
     return (
-      <div>
+      <div style = {{width:"100%", height:"30vh"}}>
           
             <ins
                className="adsbygoogle"
                style={{ display: 'block' }}
                data-ad-client="ca-pub-7280354271908100"
                data-ad-slot="8164089920"
-               data-ad-format="auto"
+               data-ad-format="horizontal"
                data-full-width-responsive="true"
             ></ins>
             
