@@ -58,6 +58,7 @@ export default class SingleRoom extends Component {
       phOfCaretaker,
       phOfCaretaker2,
       avatarCaretaker,
+      primaryContactRole,
       youtubeUrl,
       images,
       verified
@@ -126,9 +127,12 @@ export default class SingleRoom extends Component {
         }
         <div style={{display:"flex", justifyContent:"center", alignItems:"center", flexDirection:"column"}}>
           <img style={{borderRadius:"50%", width:"10em", height:"10em", border: "5px solid #ac6f28", marginBottom: "1em"}} src={avatarCaretaker || defaultAvatar} alt="Caretaker" />
-          <h3>Caretaker</h3>
+          
+          
+          {primaryContactRole ? <h3>{primaryContactRole}</h3>:<h3>Caretaker</h3>}
           <h6 style={{marginBottom:"0"}}>{nameOfCaretaker}</h6>
           <p>{phOfCaretaker }{phOfCaretaker2 ? `, ${phOfCaretaker2}`:""}</p>
+          
           <a style ={{textDecoration:"none"}}  href={`https://wa.me/234${contact}?text=Hi,%20I%20saw%20${name}%20on%20%20Viewlodges.com.ng`} target="blank">   
             <div style={{display:"flex", justifyContent:"center", alignItems:"center", margin:"1rem 0 0.5rem 0"}}>
               <div style={{width:"10em", height:"3em", backgroundColor:"black", borderRadius:"3em", padding:"0.4em 1em 0 1em", border: "0.2em solid #ac6f28"}}>
