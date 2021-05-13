@@ -20,8 +20,8 @@ const data = [
       noOfRoommies: "1",
       isRoommieFound : false,
       contact : "09066435763",
-      isLodgeFound : true,
-      nameOfLodge : "Campsite Estate",
+      isLodgeFound : false,
+      nameOfLodge : "",
       type : "Selfcontain",
       region : "Choba",
       rentCost: "120000",
@@ -35,7 +35,7 @@ const data = [
         {
           fields: {
             file: {
-              url: room1
+              url: null
             }
           }
         },
@@ -81,7 +81,7 @@ const data = [
           {
             fields: {
               file: {
-                url: room2
+                url: room1
               }
             }
           },

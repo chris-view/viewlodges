@@ -1,5 +1,5 @@
 import React, { Component } from "react"; 
-import items from "./roommieData";
+// import items from "./roommieData";
 import schoolData from "./schoolData";
 import Client from "./Contentful";
 
@@ -26,45 +26,40 @@ export default class RoommieProvider extends Component {
   getData = async () => {
     try {
       let response = await Client.getEntries({
-        content_type: "lodgesContentType"
+        content_type: "roommiesContentType"
       });
-      
-      let rooms = this.formatData(response.items);
-      this.shuffleArray(rooms);
-      let boostRooms = rooms.filter(room => room.sponsored === true);
-      rooms = [...boostRooms,...rooms]
-      let maxPrice = Math.max(...rooms.map(item => item.annualRent));
+      console.log(response.items)
+      let roommies = this.formatData(response.items);
+
+
+      this.shuffleArray(roommies);
       this.setState({
-        rooms,
-        sortedRooms: rooms,
+        roommies,
+        sortedRoommies: roommies,
         loading: false,
-        annualRent : maxPrice,
-        maxPrice
-        
+      
       });
+   
     } catch (error) {
       console.log(error);
     }
   };
 
   componentDidMount() {
-   // this.getData();
+    this.getData();
 
 
     // ====> start of local data
    
-    let roommies = this.formatData(items);
+    // let roommies = this.formatData(items);
 
-    roommies = []; // comment this out after uploading
-
-
-    this.shuffleArray(roommies);
-    this.setState({
-      roommies,
-      sortedRoommies: roommies,
-      loading: false,
+    // this.shuffleArray(roommies);
+    // this.setState({
+    //   roommies,
+    //   sortedRoommies: roommies,
+    //   loading: false,
      
-    });
+    // });
     
     //===> end of local data
   }
@@ -77,8 +72,18 @@ export default class RoommieProvider extends Component {
   formatData(items) {
       let tempItems = items.map(item => {
       let id = item.sys.id;
-      let roommieAvatar = item.fields.roommieAvatar.map(image => image.fields.file.url);
-      let lodgeAvatar = item.fields.lodgeAvatar.map(image => image.fields.file.url);
+    
+      let roommieAvatar = "";
+      // start of comment on local
+      if(item.fields.roommieAvatar){ // coment this out when dealing with local data
+        roommieAvatar = item.fields.roommieAvatar.map(image => image.fields.file.url);  
+      }
+      let lodgeAvatar = "";
+      if(item.fields.lodgeAvatar){
+        lodgeAvatar = item.fields.lodgeAvatar.map(image => image.fields.file.url);
+      }
+
+      // end of comment on local
       let roommie = { ...item.fields, id, roommieAvatar, lodgeAvatar };
       return roommie;
     });

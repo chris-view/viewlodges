@@ -1,5 +1,5 @@
 import React, { Component } from "react"; 
-// import items from "./data";
+//import items from "./data";
 import schoolData from "./schoolData";
 import Client from "./Contentful";
 
@@ -46,7 +46,7 @@ export default class RoomProvider extends Component {
   };
 
   componentDidMount() {
-   this.getData();
+     this.getData();
 
 
     // ====> start of local data
@@ -78,7 +78,7 @@ export default class RoomProvider extends Component {
       let id = item.sys.id;
       let images = item.fields.images.map(image => image.fields.file.url);
       let avatarCaretaker = "";
-      if (item.fields.avatarCaretaker ){// comment out when dealing with local data
+      if (item.fields.avatarCaretaker ){// comment out this when dealing with local data
           avatarCaretaker = item.fields.avatarCaretaker.fields.file.url;
       }
       let room = { ...item.fields, images, id, avatarCaretaker };

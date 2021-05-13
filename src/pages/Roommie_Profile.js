@@ -57,7 +57,8 @@ export default class Roommie_Profile extends Component {
       gender,
       interestedIn,
       contact,
-      isRoommieFound
+      isRoommieFound,
+      isLodgeFound,
     } = roommie;
    
     // convert to whatsapp linkable number
@@ -93,19 +94,30 @@ export default class Roommie_Profile extends Component {
               <h3>Brief Profile</h3>
               <h6>Name : {fname}</h6>
               <h6>School : {school}</h6>
-              <h6>Department : {dept}</h6>
+              <h6>Dept : {dept}</h6>
               <h6>Level : {level}</h6>
               <h6>Gender : {gender}</h6>
               <h6>Interested In : {interestedIn}s</h6>
               
             </article>    
             <article className="info">
-              <h3>Found Lodge Info</h3>
-              <h6>title : {nameOfLodge}</h6>
-              <h6>type : {type}</h6>
-              <h6>located at : {region}</h6>
-              <h6>rent cost : <b style={{color:"lightGreen"}}> {formatPrice(rentCost)}</b></h6>
-              
+              {isLodgeFound ?
+                 <> 
+                  <h3>Found Lodge Info</h3>
+                  <h6>title : {nameOfLodge}</h6>
+                  <h6>type : {type}</h6>
+                  <h6>located at : {region}</h6>
+                  <h6>rent cost : <b style={{color:"lightGreen"}}> {formatPrice(rentCost)}</b></h6>
+                 </>
+              :
+                <> 
+                  <h3>Preferred Lodge</h3>
+                  <h6>type : {type}</h6>
+                  <h6>located at : {region}</h6>
+                  <h6>rent budget : <b style={{color:"lightGreen"}}> {formatPrice(rentCost)}</b></h6>
+                 </>  
+              }
+             
             </article>
           </div> 
         </section>

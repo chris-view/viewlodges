@@ -149,10 +149,8 @@ export default class SingleRoom extends Component {
           
         </div>
           
-        {verified ? <><br/><div className="disclaimer"><em>Always go for physical verification before making any form of payments. To help keep <span>ViewLodges</span> safe for everyone, report it if you find anything frudulent.</em></div></>:
-        <div className="disclaimer">
-          <h4 className="room-extras">Disclaimer:</h4><em>This Lodge has not been verified, please make proper investigations before making any form of payments. To help keep <span>ViewLodges</span> safe for everyone, report it if you find anything frudulent.</em>
-        </div>}
+        <br/><div className="disclaimer"><h4 className="room-extras">Safty Tip:</h4><em>Always go for physical verification before making any form of payments. To help keep <span>ViewLodges</span> safe for everyone, report it if you find anything frudulent.</em></div>
+        
 
         <div  style={{ display : "flex", alignItems : "center", justifyContent : "center", padding : "2rem"}}>
           <Link to="/" className="btn-primary">
