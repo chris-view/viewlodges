@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FaUserFriends, FaShuttleVan, FaPaintRoller, FaGasPump } from "react-icons/fa";
+import { FaShuttleVan, FaPaintRoller, FaGasPump } from "react-icons/fa";
 import Title from "./Title";
 
 export default class Services extends Component {
