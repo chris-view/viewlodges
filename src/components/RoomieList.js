@@ -4,7 +4,7 @@ import { useContext} from "react";
 import { RoomContext } from "../context";
 import { FaFacebook, FaYoutube, FaInstagram} from "react-icons/fa";
 import RoomieCard from "./RoomieCard";
-// import AdWrapper from "./AdWrapper"
+import AddRoommie from "./AddRoommie"
 import GoogleAd from "./GoogleAd";
 
 const RoomieList = ({ roommies }) => {
@@ -20,7 +20,9 @@ const RoomieList = ({ roommies }) => {
     }else{
       return (
         <div className="empty-search">
-          <h5>We are yet to receive roomie requests around, Be the first, its FREE!</h5><br/>
+           <AddRoommie text="Yet to receive such roomie requests, Be the first, its FREE!"/>
+          {/* <h5>We are yet to receive roomie requests around, Be the first, its FREE!</h5><br/> */}
+          <br/><br/>
           <a href="https://www.youtube.com/channel/UCJf0a6NnSk6Z7E3E-dY4csg" target="blank"><FaYoutube className="social-icon youtube" /></a>
           <a href="https://www.facebook.com/viewlodges" target="blank"><FaFacebook className="social-icon facebook" /></a>
           <Link to="#"><FaInstagram className="social-icon instagram" /></Link><br/><br/><br/>
@@ -36,28 +38,26 @@ const RoomieList = ({ roommies }) => {
         {roommies.map((item,idx) => {
          
          // Display ads after every four lodge views
-         
-         if((idx+1) % 4 ===0){ // set to show ads after every four lodge views
-           return(
+
+        return(
            <React.Fragment key = {idx}>
-              <div  >
-                <GoogleAd  timeout={1000}  />
-              </div>
+              {((idx+1) % 4 ===0) ?  // set to show ads after every four lodge views
+                <div  >
+                  <GoogleAd  timeout={1000}  />
+                </div>:""
+              
+              }
               <div  >
                 <RoomieCard roommie={item}/>
               </div>
+             
            </React.Fragment>
            )
-         }else{
-           return(
-             <React.Fragment key = {idx}>
-                <div  >
-                  <RoomieCard  roommie={item}/>
-                </div>
-             </React.Fragment>
-           )
-         }
+         
         })}
+        <div className = "empty-search" >
+             <AddRoommie text = "What to also request for a Roommie?"/>
+        </div>
       </div>
     </section>
   );

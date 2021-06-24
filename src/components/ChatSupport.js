@@ -10,7 +10,7 @@ export default function ChatSupport() {
                   <span><FaWhatsapp style={{color:"green", width:"1.5em", height:"1.5em", float:"left"}}/></span>
                   <span style={{color:"white", float:"right"}}>Let's chat!</span>
               </div>  */}
-              <div style={{width:"3em", height:"3em", backgroundColor:"black", borderRadius:"3em", padding:"0.55em", border: "0.2em solid #ac6f28"}}>
+              <div style={{width:"3em", height:"3em", backgroundColor:"transparent", borderRadius:"3em", padding:"0.55em", border: "0.2em solid #ac6f28"}}>
                   <FaWhatsapp style={{color:"green", width:"1.5em", height:"1.5em", float:"left"}}/>
               </div> 
             </div> 

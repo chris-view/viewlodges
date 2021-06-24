@@ -46,7 +46,7 @@ export default class RoomProvider extends Component {
   };
 
   componentDidMount() {
-     this.getData();
+     this.getData();  // comment out for during local activity
 
 
     // ====> start of local data
@@ -77,11 +77,15 @@ export default class RoomProvider extends Component {
       let tempItems = items.map(item => {
       let id = item.sys.id;
       let images = item.fields.images.map(image => image.fields.file.url);
+  //    let room = { ...item.fields, images, id}; // use for local activity
+    // comment block when dealing with local data -->start
       let avatarCaretaker = "";
-      if (item.fields.avatarCaretaker ){// comment out this when dealing with local data
+      if (item.fields.avatarCaretaker ){
           avatarCaretaker = item.fields.avatarCaretaker.fields.file.url;
       }
       let room = { ...item.fields, images, id, avatarCaretaker };
+
+    // end <--
       return room;
     });
     return tempItems;

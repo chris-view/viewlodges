@@ -1,5 +1,5 @@
 import React, { Component } from "react"; 
-// import items from "./roommieData";
+//import items from "./roommieData";
 import schoolData from "./schoolData";
 import Client from "./Contentful";
 
@@ -46,13 +46,12 @@ export default class RoommieProvider extends Component {
   };
 
   componentDidMount() {
-    this.getData();
+    this.getData(); // comment out for during local
 
 
     // ====> start of local data
    
     // let roommies = this.formatData(items);
-
     // this.shuffleArray(roommies);
     // this.setState({
     //   roommies,
@@ -72,12 +71,14 @@ export default class RoommieProvider extends Component {
   formatData(items) {
       let tempItems = items.map(item => {
       let id = item.sys.id;
+      let  roommieAvatar = item.fields.roommieAvatar.map(image => image.fields.file.url); 
     
-      let roommieAvatar = "";
-      // start of comment on local
-      if(item.fields.roommieAvatar){ // coment this out when dealing with local data
-        roommieAvatar = item.fields.roommieAvatar.map(image => image.fields.file.url);  
-      }
+      
+      // start of comment during local data activity
+      // let roommieAvatar = "";
+      // if(item.fields.roommieAvatar){ 
+      //   roommieAvatar = item.fields.roommieAvatar.map(image => image.fields.file.url);  
+      // }
       let lodgeAvatar = "";
       if(item.fields.lodgeAvatar){
         lodgeAvatar = item.fields.lodgeAvatar.map(image => image.fields.file.url);

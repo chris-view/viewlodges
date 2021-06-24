@@ -4,7 +4,7 @@ import { useContext} from "react";
 import { RoomContext } from "../context";
 import { FaFacebook, FaYoutube, FaInstagram} from "react-icons/fa";
 import RoomCard from "./RoomCard";
-// import AdWrapper from "./AdWrapper"
+import LodgeRequest from "./LodgeRequest"
 import GoogleAd from "./GoogleAd";
 
 const RoomsList = ({ rooms }) => {
@@ -37,27 +37,25 @@ const RoomsList = ({ rooms }) => {
          
          // Display ads after every four lodge views
          
-         if((idx+1) % 4 === 0){ // set to show ads after every three lodge views
+         
            return(
            <React.Fragment key = {idx}>
-              <div >
-               <GoogleAd  timeout={1000}  />
-              </div>
+              {((idx+1) % 4 ===0) ?  // set to show ads after every four lodge views
+                <div  >
+                  <GoogleAd  timeout={1000}  />
+                </div>:""
+              
+              }
               <div >
                 <RoomCard room={item}/>
               </div>
            </React.Fragment>
            )
-         }else{
-           return(
-             <React.Fragment key = {idx}>
-                <div  >
-                  <RoomCard  room={item}/>
-                </div>
-             </React.Fragment>
-           )
-         }
+         
         })}
+        <div className = "empty-search" >
+            <LodgeRequest text = "Would you like to also add a Lodge?"/>
+        </div>
       </div>
     </section>
   );
