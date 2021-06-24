@@ -28,10 +28,7 @@ export default class RoommieProvider extends Component {
       let response = await Client.getEntries({
         content_type: "roommiesContentType"
       });
-      console.log(response.items)
       let roommies = this.formatData(response.items);
-
-
       this.shuffleArray(roommies);
       this.setState({
         roommies,
@@ -71,14 +68,13 @@ export default class RoommieProvider extends Component {
   formatData(items) {
       let tempItems = items.map(item => {
       let id = item.sys.id;
-      let  roommieAvatar = item.fields.roommieAvatar.map(image => image.fields.file.url); 
-    
+     
       
       // start of comment during local data activity
-      // let roommieAvatar = "";
-      // if(item.fields.roommieAvatar){ 
-      //   roommieAvatar = item.fields.roommieAvatar.map(image => image.fields.file.url);  
-      // }
+      let roommieAvatar = "";
+      if(item.fields.roommieAvatar){ 
+        roommieAvatar = item.fields.roommieAvatar.map(image => image.fields.file.url);  
+      }
       let lodgeAvatar = "";
       if(item.fields.lodgeAvatar){
         lodgeAvatar = item.fields.lodgeAvatar.map(image => image.fields.file.url);

@@ -56,7 +56,7 @@ roomieCard.propTypes = {
     region: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
-    roommieAvatar: PropTypes.arrayOf(PropTypes.string).isRequired,
+    // roommieAvatar: PropTypes.arrayOf(PropTypes.string).isRequired,
     
   })
 };
