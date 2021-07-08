@@ -8,7 +8,7 @@ class GoogleAdBanner extends Component {
  
 
   componentDidMount() {
-    const { currentPath } = this.props;
+   
     const { timeout } = this.props;
     this.googleIUnit2 = setTimeout(() => {
       if (typeof window !== 'undefined')
@@ -21,7 +21,7 @@ class GoogleAdBanner extends Component {
   }
 
   render() {
- 
+    const { currentPath } = this.props;
     return (
       <div key = {currentPath} >
           
