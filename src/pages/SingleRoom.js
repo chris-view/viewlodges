@@ -6,6 +6,10 @@ import YoutubeVideo from "../components/YoutubeVideo";
 import defaultBcg from "../images/VL_fav_white.PNG";
 import defaultAvatar from "../images/default-avatar.jpg";
 import Footer from "../components/Footer";
+import GoogleAdBanner from "../components/GoogleAdBanner";
+
+
+
 export default class SingleRoom extends Component {
   constructor(props) {
     super(props);
@@ -74,8 +78,9 @@ export default class SingleRoom extends Component {
     return (
        <>
         <section className="single-room">
-          
+          <GoogleAdBanner  timeout={1000}  />
           <div className="single-room-info">
+             
              <article className="info">
               {// test for when youtube URL is not given and display frontal image instead
               }
@@ -149,7 +154,12 @@ export default class SingleRoom extends Component {
           
         </div>
           
-        <br/><div className="disclaimer"><h4 className="room-extras">Safty Tip:</h4><em>Always go for physical verification before making any form of payments. To help keep <span>ViewLodges</span> safe for everyone, report it if you find anything frudulent.</em></div>
+        <br/>
+        <div className="disclaimer"><
+            h4 className="room-extras">Safty Tip:</h4><em>Always go for physical verification before making any form of payments. To help keep
+            <span>ViewLodges</span> safe for everyone, report it if you find anything frudulent.</em>
+         </div>
+        <GoogleAdBanner  timeout={1000}  />
         
 
         <div  style={{ display : "flex", alignItems : "center", justifyContent : "center", padding : "2rem"}}>

@@ -3,53 +3,53 @@ import PropTypes from 'prop-types';
 
 // const googleAdId = 'ca-pub-7280354271908100';
 
-class GoogleAd extends Component {
-  googleInit = null;
+class GoogleAdBanner extends Component {
+  googleIUnit2 = null;
 
   componentDidMount() {
     const { timeout } = this.props;
-    this.googleInit = setTimeout(() => {
+    this.googleIUnit2 = setTimeout(() => {
       if (typeof window !== 'undefined')
         (window.adsbygoogle = window.adsbygoogle || []).push({});
     }, timeout);
   }
 
   componentWillUnmount() {
-    if (this.googleInit) clearTimeout(this.googleInit);
+    if (this.googleIUnit2) clearTimeout(this.googleIUnit2);
   }
 
   render() {
-  
+ 
     return (
       <div>
           
-          <ins
-              className="adsbygoogle"
-              style={{ display: 'block' }}
-              data-ad-layout="in-article"
-              data-ad-format="fluid"
-              data-ad-client="ca-pub-7280354271908100"
-              data-ad-slot="7345832275"
-              >
+        <ins 
+            className="adsbygoogle"
+            style={{ display: 'block' }}
+            data-ad-client="ca-pub-7280354271908100"
+            data-ad-slot="8164089920"
+            data-ad-format="auto"
+            data-full-width-responsive="true">
 
-          </ins>
+        </ins>
+          
           
       </div>
     );
   }
 }
 
-GoogleAd.propTypes = {
+GoogleAdBanner.propTypes = {
  // classNames: PropTypes.string,
   type: PropTypes.string,
   timeout: PropTypes.number,
 };
 
-GoogleAd.defaultProps = {
+GoogleAdBanner.defaultProps = {
  // classNames: '',
   timeout: 200,
 //  type: "square",
 };
 
-export default GoogleAd;
+export default GoogleAdBanner;
 
