@@ -5,8 +5,10 @@ import PropTypes from 'prop-types';
 
 class GoogleAdBanner extends Component {
   googleIUnit2 = null;
+ 
 
   componentDidMount() {
+    const { currentPath } = this.props;
     const { timeout } = this.props;
     this.googleIUnit2 = setTimeout(() => {
       if (typeof window !== 'undefined')
@@ -21,7 +23,7 @@ class GoogleAdBanner extends Component {
   render() {
  
     return (
-      <div>
+      <div key = {currentPath} >
           
         <ins 
             className="adsbygoogle"
