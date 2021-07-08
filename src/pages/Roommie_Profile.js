@@ -77,7 +77,7 @@ export default class Roommie_Profile extends Component {
     return (
        <>
         <section className="single-room">
-          <GoogleAdBanner  timeout={1000}  />
+          <GoogleAdBanner  timeout={3000}  />
           <div className="single-room-info">
              <article className="info">
                 <div style={{width:"100%", height:"15em", position:"relative", }}>
@@ -156,7 +156,7 @@ export default class Roommie_Profile extends Component {
         :<div style={{display:"flex", justifyContent:"center", alignItems:"center", color:"grey"}}> 
           <h4>Roommie Found!</h4>
         </div>}
-        <GoogleAdBanner  timeout={1000}  />
+        <GoogleAdBanner  timeout={3000}  />
       <div  style={{ display : "flex", alignItems : "center", justifyContent : "center", padding : "2rem"}}>
           <Link to="/" className="btn-primary">
               back 
