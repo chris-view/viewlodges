@@ -19,21 +19,27 @@ class GoogleAd extends Component {
   }
 
   render() {
-  
+    const { type } = this.props;
     return (
       <div>
-          
-          <ins
-              className="adsbygoogle"
-              style={{ display: 'block' }}
-              data-ad-layout="in-article"
-              data-ad-format="fluid"
-              data-ad-client="ca-pub-7280354271908100"
-              data-ad-slot="7345832275"
-              >
-
-          </ins>
-          
+          {type === "square" ? 
+            <ins
+                className="adsbygoogle"
+                style={{ display: 'block' }}
+                data-ad-layout="in-article"
+                data-ad-format="fluid"
+                data-ad-client="ca-pub-7280354271908100"
+                data-ad-slot="7345832275"
+                ></ins>
+            :
+            <ins 
+                className="adsbygoogle"
+                style={{ display: 'block' }}
+                data-ad-client="ca-pub-7280354271908100"
+                data-ad-slot="8164089920"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+          }
       </div>
     );
   }
@@ -48,7 +54,7 @@ GoogleAd.propTypes = {
 GoogleAd.defaultProps = {
  // classNames: '',
   timeout: 200,
-//  type: "square",
+  type: "square",
 };
 
 export default GoogleAd;

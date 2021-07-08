@@ -5,13 +5,6 @@ import { RoommieContext } from "../roommieContext";
 import defaultBcg from "../images/VL_fav_white.PNG";
 import defaultAvatar from "../images/default-avatar.jpg";
 import Footer from "../components/Footer";
-import GoogleAdBanner from "../components/GoogleAdBanner"
-
-
-
-
-
-
 export default class Roommie_Profile extends Component {
   
   constructor(props) {
@@ -77,7 +70,7 @@ export default class Roommie_Profile extends Component {
     return (
        <>
         <section className="single-room">
-          <GoogleAdBanner  timeout={2000}  />
+          
           <div className="single-room-info">
              <article className="info">
                 <div style={{width:"100%", height:"15em", position:"relative", }}>
@@ -156,7 +149,7 @@ export default class Roommie_Profile extends Component {
         :<div style={{display:"flex", justifyContent:"center", alignItems:"center", color:"grey"}}> 
           <h4>Roommie Found!</h4>
         </div>}
-        <GoogleAdBanner  timeout={2000}  />
+
       <div  style={{ display : "flex", alignItems : "center", justifyContent : "center", padding : "2rem"}}>
           <Link to="/" className="btn-primary">
               back 
