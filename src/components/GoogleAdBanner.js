@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { useEffect} from "react";
+import React, { useEffect } from 'react';
 
 
 // const googleAdId = 'ca-pub-7280354271908100';
