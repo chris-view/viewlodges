@@ -78,7 +78,7 @@ export default class SingleRoom extends Component {
     return (
        <>
         <section className="single-room">
-          <GoogleAdBanner  timeout={1000}  />
+          <GoogleAdBanner  timeout={2000}  />
           <div className="single-room-info">
              
              <article className="info">
@@ -159,7 +159,7 @@ export default class SingleRoom extends Component {
             h4 className="room-extras">Safty Tip:</h4><em>Always go for physical verification before making any form of payments. To help keep 
             <span> ViewLodges</span> safe for everyone, report it if you find anything frudulent.</em>
          </div>
-        <GoogleAdBanner  timeout={1000}  />
+        <GoogleAdBanner  timeout={2000}  />
         
 
         <div  style={{ display : "flex", alignItems : "center", justifyContent : "center", padding : "2rem"}}>
