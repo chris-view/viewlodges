@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { FaFacebook, FaYoutube, FaInstagram, FaWhatsapp} from "react-icons/fa";
+import { FaWhatsapp} from "react-icons/fa";
 import { RoommieContext } from "../roommieContext";
 import defaultBcg from "../images/VL_fav_white.PNG";
-import defaultAvatar from "../images/default-avatar.jpg";
+import defaultAvatar from "../images/default_video.png";
 import Footer from "../components/Footer";
+import AddRoommie from "../components/AddRoommie";
+import YouTubeButton from "../components/YouTubeButton";
+
+
 export default class Roommie_Profile extends Component {
   
   constructor(props) {
@@ -15,7 +19,7 @@ export default class Roommie_Profile extends Component {
       defaultBcg: defaultBcg
     };
   }
-  // navigate component to the top
+  // navigate component to the to
   componentDidMount() {
   //  window.scrollTo(0, 0);
     window.scrollTo({
@@ -83,11 +87,16 @@ export default class Roommie_Profile extends Component {
             </article>
           <article className="info">
               <br/><br/><br/>
-              <h5 className="format-text">Like, Follow and Stay Updated</h5>
+              {/* <h5 className="format-text">Like, Follow and Stay Updated</h5>
               <a href="https://www.youtube.com/channel/UCJf0a6NnSk6Z7E3E-dY4csg" target="blank"><FaYoutube className="social-icon youtube" /></a>
               <a href="https://www.facebook.com/viewlodges" target="blank"><FaFacebook className="social-icon facebook" /></a>
               <Link to="#"><FaInstagram className="social-icon instagram" /></Link><br/><br/><br/>
-              <em style = {{color:"grey", fontSize:"0.7em", lineHeight:"1.5"}}>Kindly Subscribe and Follow us to stay updated with us.</em>
+               */}
+              
+              <YouTubeButton/>
+              
+              <br/>
+              <em style = {{color:"grey", fontSize:"0.7em", lineHeight:"1.5"}}>Please Subscribe if you find what we do useful and stay updated.</em>
               
             </article>
             <article className="info">
@@ -141,18 +150,22 @@ export default class Roommie_Profile extends Component {
               </div>  
             </div> 
           </a>
-          <div className="disclaimer">
+          <br/><br/>
+          {/* <div className="disclaimer">
             <h4 className="room-extras">Safty Tip:</h4><em>Always make proper investigations before making any form of payments. To help keep <span>ViewLodges</span> safe for everyone, report user if you find anything frudulent.</em>
-          </div>
+          </div> */}
         </>
        
         :<div style={{display:"flex", justifyContent:"center", alignItems:"center", color:"grey"}}> 
           <h4>Roommie Found!</h4>
         </div>}
-
-      <div  style={{ display : "flex", alignItems : "center", justifyContent : "center", padding : "2rem"}}>
+        <div className="room-extras">
+            <AddRoommie text = "Do you also want to make your own request?"/>
+        </div>
+       
+      <div  style={{ display : "flex", alignItems : "center", justifyContent : "center", padding : "2rem", paddingTop:"0"}}>
           <Link to="/" className="btn-primary">
-              back 
+               back 
           </Link>
         </div>
         

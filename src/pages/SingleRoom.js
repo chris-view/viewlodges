@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { FaFacebook, FaYoutube, FaInstagram, FaCheckCircle, FaWhatsapp} from "react-icons/fa";
+import { FaCheckCircle, FaWhatsapp} from "react-icons/fa";
 import { RoomContext } from "../context";
 import YoutubeVideo from "../components/YoutubeVideo";
 import defaultBcg from "../images/VL_fav_white.PNG";
 import defaultAvatar from "../images/default-avatar.jpg";
 import Footer from "../components/Footer";
+import YouTubeButton from "../components/YouTubeButton";
+
+
 export default class SingleRoom extends Component {
   constructor(props) {
     super(props);
@@ -83,11 +86,15 @@ export default class SingleRoom extends Component {
               
             </article>
           <article className="info">
-              <h5 className="format-text">Subscribe and Stay Updated:</h5>
+              {/* <h5 className="format-text">Subscribe and Stay Updated:</h5>
               <a href="https://www.youtube.com/channel/UCJf0a6NnSk6Z7E3E-dY4csg" target="blank"><FaYoutube className="social-icon youtube" /></a>
               <a href="https://www.facebook.com/viewlodges" target="blank"><FaFacebook className="social-icon facebook" /></a>
               <Link to="#"><FaInstagram className="social-icon instagram" /></Link><br/><br/><br/>
-              <em style = {{color:"grey", fontSize:"0.7em", lineHeight:"1.5"}}>Kindly Subscribe and Follow us to stay updated when new Lodges are uploaded.</em>
+               */}
+               <YouTubeButton/>
+              
+              <br/>
+              <em style = {{color:"grey", fontSize:"0.7em", lineHeight:"1.5"}}>Please Subscribe if you find what we do useful and stay updated.</em>
               
             </article>
                 

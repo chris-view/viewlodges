@@ -42,7 +42,7 @@ import logo from "../images/VL_logo_black.PNG";
                  <Link to="/upload_lodge"><FaCloudUploadAlt className="side-icon" />Upload Lodge</Link>
             </li>
             <li className="push" onClick = {hideNav}>
-                 <Link to="/"><FaUserFriends className="side-icon" />Request Roommies</Link>
+                 <Link to="/request_roommate"><FaUserFriends className="side-icon" />Request Roommies</Link>
             </li>
           </ul>
         </div>
