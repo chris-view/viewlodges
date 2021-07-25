@@ -40,9 +40,9 @@ const RoomsList = ({ rooms }) => {
          
            return(
            <React.Fragment key = {idx}>
-              {((idx+1) % 4 ===0) ?  // set to show ads after every four lodge views
+              {((idx+1) % 3 ===0) ?  // set to show ads after every three lodge views
                 <div  >
-                  <GoogleAd  timeout={1000}  />
+                  <GoogleAd  timeout={500}  />
                 </div>:""
               
               }

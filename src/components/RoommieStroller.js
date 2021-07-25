@@ -12,16 +12,16 @@ function RoommieStroller() {
 
     const [count, setCount] = useState({
         prev: 0,
-        next: 10
+        next: 5
     })
 
     const [hasMore, setHasMore] = useState(true);
     const [current, setCurrent] = useState(sortedRoommies.slice(count.prev, count.next))
     
    useEffect(() => {
-        setCount(({ prev: 0, next: 10 }))
+        setCount(({ prev: 0, next: 5 }))
         setHasMore(true);
-        setCurrent(sortedRoommies.slice(0, 10))
+        setCurrent(sortedRoommies.slice(0, 5))
         
     }, [sortedRoommies])
     useEffect(() =>{
@@ -37,9 +37,9 @@ function RoommieStroller() {
         return;
     }
     setTimeout(() => {
-        setCurrent(current.concat(sortedRoommies.slice(count.prev + 10, count.next + 10)))
+        setCurrent(current.concat(sortedRoommies.slice(count.prev + 5, count.next + 5)))
     }, 2000)
-    setCount((prevState) => ({ prev: prevState.prev + 10, next: prevState.next + 10 }))
+    setCount((prevState) => ({ prev: prevState.prev + 5, next: prevState.next + 5 }))
     }
     
     return (

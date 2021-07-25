@@ -12,16 +12,16 @@ function DataStroller() {
 
     const [count, setCount] = useState({
         prev: 0,
-        next: 10
+        next: 5
     })
 
     const [hasMore, setHasMore] = useState(true);
     const [current, setCurrent] = useState(sortedRooms.slice(count.prev, count.next))
     
    useEffect(() => {
-        setCount(({ prev: 0, next: 10 }))
+        setCount(({ prev: 0, next: 5 }))
         setHasMore(true);
-        setCurrent(sortedRooms.slice(0, 10))
+        setCurrent(sortedRooms.slice(0, 5))
         
     }, [sortedRooms])
     useEffect(() =>{
@@ -38,9 +38,9 @@ function DataStroller() {
     }
     
     setTimeout(() => {
-        setCurrent(current.concat(sortedRooms.slice(count.prev + 10, count.next + 10)))
+        setCurrent(current.concat(sortedRooms.slice(count.prev + 5, count.next + 5)))
     }, 2000)
-    setCount((prevState) => ({ prev: prevState.prev + 10, next: prevState.next + 10 }))
+    setCount((prevState) => ({ prev: prevState.prev + 5, next: prevState.next + 5 }))
     }
     
     return (
