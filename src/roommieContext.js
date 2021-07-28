@@ -30,6 +30,8 @@ export default class RoommieProvider extends Component {
       });
       let roommies = this.formatData(response.items);
       this.shuffleArray(roommies);
+      let boostRoommies = roommies.filter(roommie => roommie.sponsored === true);
+      roommies = [...boostRoommies, ...roommies]
       this.setState({
         roommies,
         sortedRoommies: roommies,
@@ -43,13 +45,15 @@ export default class RoommieProvider extends Component {
   };
 
   componentDidMount() {
-    this.getData(); // comment out for during local
+   this.getData(); // comment out for during local
 
 
     // ====> start of local data
    
     // let roommies = this.formatData(items);
     // this.shuffleArray(roommies);
+    // let boostRoommies = roommies.filter(roommie => roommie.sponsored === true);
+    // roommies = [...boostRoommies, ...roommies]
     // this.setState({
     //   roommies,
     //   sortedRoommies: roommies,
