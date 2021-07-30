@@ -31,8 +31,11 @@ const roomieCard = memo(({ roommie }) => {
                     </span>:""}
                     
                 </div>
-                {sponsored ? // display sponsored icon if user is been boosted
-                  <img style = {{position:"absolute", top:"0", left:"calc(50% - 90px)"}} src = {sponsorIcon} width="30px" height ="30px" alt ="sponsored"/>
+                {sponsored ? // display sponsored icon if user is been boosted 90px for two
+                   noOfRoommies > 1 ?
+                      <img style = {{position:"absolute", top:"0", left:"calc(50% - 90px)"}} src = {sponsorIcon} width="30px" height ="30px" alt ="sponsored2"/>
+                    :
+                    <img style = {{position:"absolute", top:"0", left:"calc(50% - 70px)"}} src = {sponsorIcon} width="30px" height ="30px" alt ="sponsored1"/>
                 :""}   
             </div>
          
