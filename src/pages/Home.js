@@ -7,6 +7,8 @@ import RoomsContainer from "../components/RoomsContainer";
 import RoomieContainer from "../components/RoomieContainer";
 import ChatSupport from "../components/ChatSupport";
 import Services from "../components/Services";
+import About from "../components/About";
+
 import Footer from "../components/Footer"
 
 const Home = () => {
@@ -50,6 +52,7 @@ const Home = () => {
       {showing === "lodges" ?  <RoomsContainer /> :  <RoomieContainer />}
       <ChatSupport/>
       <Services />
+      <About/>
       <Footer/>
     </>
   );
