@@ -25,7 +25,7 @@ const Home = () => {
         <Banner
           title="welcome to viewlodges"
           // subtitle="Your free No.1 platform to view homes away from home..."
-          subtitle="Your first ever and free student apartment self-service platform."
+          subtitle="first ever unified student apartment service and roommate pairing platform."
         >
         </Banner>
       </Hero>

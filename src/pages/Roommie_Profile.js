@@ -4,9 +4,11 @@ import { FaWhatsapp} from "react-icons/fa";
 import { RoommieContext } from "../roommieContext";
 import defaultBcg from "../images/VL_fav_white.PNG";
 import defaultAvatar from "../images/default_video.png";
+import vipTag from "../images/vip.png";
 import Footer from "../components/Footer";
 import AddRoommie from "../components/AddRoommie";
-import YouTubeButton from "../components/YouTubeButton";
+import ChatSupport from "../components/ChatSupport";
+// import YouTubeButton from "../components/YouTubeButton";
 
 
 export default class Roommie_Profile extends Component {
@@ -61,6 +63,7 @@ export default class Roommie_Profile extends Component {
       gender,
       interestedIn,
       contact,
+      sponsored,
       isRoommieFound,
       isLodgeFound,
     } = roommie;
@@ -82,7 +85,12 @@ export default class Roommie_Profile extends Component {
                     <div style={{position:"absolute", bottom:"calc(50% - 12em)", right:"calc(50% - 4em)"}}>
                         <img style={{borderRadius:"50%", width:"8em", height:"8em", border: "5px solid #ac6f28", marginBottom: "1em"}} src={roommieAvatar || defaultAvatar} alt="Caretaker" />  
                     </div>
-                    
+                    {sponsored ?
+                          <div style={{position:"absolute", bottom:"calc(50% - 14.5em)", right:"calc(50% - 2em)"}}>
+                              <img style={{ width:"4em", height:"1.5em", marginBottom: "1em"}} src={vipTag} alt="Caretaker" />  
+                          </div>
+                      :""
+                    }
                 </div>
             </article>
           <article className="info">
@@ -93,11 +101,11 @@ export default class Roommie_Profile extends Component {
               <Link to="#"><FaInstagram className="social-icon instagram" /></Link><br/><br/><br/>
                */}
               
-              <YouTubeButton/>
+              {/* <YouTubeButton/> */}
               
-              <br/>
-              <em style = {{color:"grey", fontSize:"0.7em", lineHeight:"1.5"}}>Please Subscribe if you find what we do useful and stay updated.</em>
-              
+            {sponsored ? <><br/><br/><br/> </>:""} 
+            {/* to format accordingly whuen displaying vip tag */}
+
             </article>
             <article className="info">
               <h3>Brief Profile</h3>
@@ -106,7 +114,7 @@ export default class Roommie_Profile extends Component {
               <h6>Dept : {dept}</h6>
               <h6>Level : {level}</h6>
               <h6>Gender : {gender}</h6>
-              <h6>Interested In : {interestedIn}s</h6>
+              <h6>Interested Gender : {interestedIn}</h6>
               
             </article>    
             <article className="info">
@@ -132,7 +140,7 @@ export default class Roommie_Profile extends Component {
         </section>
         {preconditions ? 
         <section className="room-extras">
-          <h6>A Roommate who is: </h6>
+          <h6>Desired qualities: </h6>
           <ul className="extras">
             {preconditions.map((item, index) => (
               <li key={index}>- {item}</li>
@@ -168,7 +176,7 @@ export default class Roommie_Profile extends Component {
                back 
           </Link>
         </div>
-        
+        <ChatSupport/>
         <Footer/>
       </>
     );

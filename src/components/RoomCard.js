@@ -6,10 +6,10 @@ import { memo } from "react";
 import { Link } from "react-router-dom";
 import {FaCheckCircle} from "react-icons/fa"
 import defaultImg from "../images/VL_fav_white.PNG";
-// import AdWrapper from "./AdWrapper";
+import locationIcon from "../images/locationImg.png";
 
 const RoomCard = memo(({ room }) => {
-  const {id, images, annualRent, region, type, occupancy, verified } = room;
+  const {id, images, annualRent, region, type, occupancy, sponsored, school, verified } = room;
   const context = useContext(RoomContext);
   const {formatPrice} = context;
  
@@ -25,11 +25,21 @@ const RoomCard = memo(({ room }) => {
         
       </div>
       <div>
-        {occupancy ?  <div className="available"/> : <div className="occupied"/>}
-        <article className="info">
-          <h6>Region : {region}</h6>
-          <h6>Type : {type}</h6>
-          <h6>rent cost : {formatPrice(annualRent)}</h6>
+      
+
+        {
+          sponsored ? occupancy ?  <div className="available"/> : <div className="occupied"/> : <div className="occupied"/>
+        }
+
+
+        <article className="info" style={{fontFamily:"cursive", textAlign:"center"}}>
+        
+          <h6>{type}</h6>
+          <h6><span style={{color:"green"}}>{formatPrice(annualRent)}</span>/yr</h6>
+          <div className="center-align-roomie" style={{ fontFamily:"cursive", lineHeight:"1.2", marginBottom:"-2em"}}>
+            <span> <img src= {locationIcon} width="25em" height="25em" alt="loc" style={{float:"left", marginRight:"1em"}}/> <h6>{region}, {school}.</h6> </span>
+          </div>
+        
         </article>
       </div>
       <div className="room-info">

@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 import defaultImg from "../images/VL_fav_white.PNG";
 import unknownUser from "../images/default-avatar.jpg";
 import sponsorIcon from "../images/sponsorIcon.png";
+import locationIcon from "../images/locationImg.png";
 
 
 const roomieCard = memo(({ roommie }) => {
-  const {id, level, interestedIn, region, roommieAvatar, isRoommieFound, noOfRoommies, sponsored} = roommie;
+  const {id, level, gender, region, school, roommieAvatar, isRoommieFound, noOfRoommies, sponsored} = roommie;
  
   return (
     <article className="room">
@@ -40,14 +41,18 @@ const roomieCard = memo(({ roommie }) => {
             </div>
          
         </Link>
-        <div style={{textAlign:"center", fontWeight:"bolder", fontFamily:"italic", fontSize:"large"}}>{!isRoommieFound ? ( noOfRoommies > 1 ? "I need 2 Roommies" : "I need a Roommie"):"Roommie"+(noOfRoommies > 1?"s":"")+" Found!"}</div>        
+        <div style={{textAlign:"center", fontWeight:"bolder", fontFamily:"cursive", fontSize:"large"}}>{!isRoommieFound ? ( noOfRoommies > 1 ? "I need 2 Roommies" : "I need a Roommie"):"Roommie"+(noOfRoommies > 1?"s":"")+" Found!"}</div>        
       </div>
       <div>
         {!isRoommieFound ?  <div className="available"/> : <div className="occupied"/>}
-        <article className="info">
-          <h6>Level : {level}</h6>
-          <h6>Region : {region}</h6>
-          <h6>Interested In : {interestedIn}</h6>
+        <article className="info" style={{fontFamily:"cursive", textAlign:"center"}}>
+          <h6>{gender}, {level}</h6>
+          
+          <div className="center-align-roomie" style={{  lineHeight:"1.2", marginBottom:"-2em"}}>
+            <span> <img src= {locationIcon} width="25em" height="25em" alt="loc" style={{float:"left", marginRight:"1em"}}/> <h6>{region}, {school}.</h6> </span>
+          </div>
+          
+          
         </article>
       </div>
       <div className="room-info">

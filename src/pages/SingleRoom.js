@@ -7,6 +7,7 @@ import defaultBcg from "../images/VL_fav_white.PNG";
 import defaultAvatar from "../images/default-avatar.jpg";
 import Footer from "../components/Footer";
 import YouTubeButton from "../components/YouTubeButton";
+import ChatSupport from "../components/ChatSupport";
 
 
 export default class SingleRoom extends Component {
@@ -59,7 +60,6 @@ export default class SingleRoom extends Component {
       junction,
       nameOfCaretaker,
       phOfCaretaker,
-      phOfCaretaker2,
       avatarCaretaker,
       primaryContactRole,
       youtubeUrl,
@@ -101,13 +101,13 @@ export default class SingleRoom extends Component {
                 
             <article className="info">
               <h3>info</h3>
-              <h6>title : {name}</h6>
-              <h6>type : {type}</h6>
-              <h6>rent cost : <b style={{color:"lightGreen"}}> {formatPrice(annualRent)}</b></h6>
-              <h6>running water : <span className="format-text"> {water ? "available" : "not available"}</span></h6>
-              <h6>occupancy : { verified ? <>{occupancy ? "Available" : "Occupied"}</> : <em style = {{color:"grey", fontSize:"0.7em", lineHeight:"1.5"}}>[ Please contact caretaker or agent below to confirm current occupancy ] </em>}</h6>
-              <h6 >Roommates :  <span className="format-text">{capacity < 1 ? `No Restriction`: `${capacity} maximum`}</span> </h6>
-              {size ? <h6>size :  {size} SQFT</h6>:""}
+              <h6><span>title :</span> {name}</h6>
+              <h6><span>type : </span>{type}</h6>
+              <h6><span>rent cost : </span> <b style={{color:"lightGreen"}}> {formatPrice(annualRent)}</b></h6>
+              <h6><span>Running Water : </span> {water ? "available" : "not available"}</h6>
+              <h6><span>occupancy :</span> { sponsored ? <>{occupancy ? "Available" : <em style={{color:"orange"}}>Occupied</em>}</> : <em style = {{color:"orange"}}> Occupied</em>}</h6>
+              <h6><span>roommates :</span>  <em className="format-text">{capacity < 1 ? `No Restriction`: `${capacity} maximum`}</em> </h6>
+              {size ? <h6><span>size :</span>  {size} SQFT</h6>:""}
               
             </article>
             
@@ -135,24 +135,28 @@ export default class SingleRoom extends Component {
         }
         <div style={{display:"flex", justifyContent:"center", alignItems:"center", flexDirection:"column"}}>
           <img style={{borderRadius:"50%", width:"10em", height:"10em", border: "5px solid #ac6f28", marginBottom: "1em"}} src={avatarCaretaker || defaultAvatar} alt="Caretaker" />
-          
-          
           {primaryContactRole ? <h3>{primaryContactRole}</h3>:<h3>Caretaker</h3>}
-          <h6 style={{marginBottom:"0"}}>{nameOfCaretaker}</h6>
+          <h6 style={{marginBottom:"0"}}>{nameOfCaretaker}</h6><br/>
           {!sponsored ?
-            <>
-              <p>{phOfCaretaker }{phOfCaretaker2 ? `, ${phOfCaretaker2}`:""}</p>
+            // <>
+            //   <p>{phOfCaretaker }{phOfCaretaker2 ? `, ${phOfCaretaker2}`:""}</p>
               
-              <a style ={{textDecoration:"none"}}  href={`https://wa.me/234${contact}?text=Hi,%20I%20saw%20${name}%20on%20%20Viewlodges.com.ng`} target="blank">   
-                <div style={{display:"flex", justifyContent:"center", alignItems:"center", margin:"1rem 0 0.5rem 0"}}>
-                  <div style={{width:"10em", height:"3em", backgroundColor:"black", borderRadius:"3em", padding:"0.4em 1em 0 1em", border: "0.2em solid #ac6f28"}}>
-                      <span><FaWhatsapp style={{color:"green", width:"1.5em", height:"1.5em", float:"left"}}/></span>
-                      <span style={{color:"white", float:"right"}}>Send DM</span>
+            //   <a style ={{textDecoration:"none"}}  href={`https://wa.me/234${contact}?text=Hi,%20I%20saw%20${name}%20on%20%20Viewlodges.com.ng`} target="blank">   
+            //     <div style={{display:"flex", justifyContent:"center", alignItems:"center", margin:"1rem 0 0.5rem 0"}}>
+            //       <div style={{width:"10em", height:"3em", backgroundColor:"black", borderRadius:"3em", padding:"0.4em 1em 0 1em", border: "0.2em solid #ac6f28"}}>
+            //           <span><FaWhatsapp style={{color:"green", width:"1.5em", height:"1.5em", float:"left"}}/></span>
+            //           <span style={{color:"white", float:"right"}}>Send DM</span>
                   
-                  </div>  
-                </div>
-              </a> 
-            </>
+            //       </div>  
+            //     </div>
+            //   </a> 
+            // </>
+
+            // Just display occupied if the property is not sponsored.
+            <div style={{display:"flex", justifyContent:"center", alignItems:"center", color:"grey"}}> 
+              <br/><br/>
+              <h6>Currently Occupied!</h6>
+            </div>
             :
               <a style ={{textDecoration:"none"}}  href={`https://wa.me/2348141108125?text=Hi,%20I%20saw%20${name}%20on%20%20Viewlodges.com.ng`} target="blank">   
                 <div style={{display:"flex", justifyContent:"center", alignItems:"center", margin:"1rem 0 0.5rem 0"}}>
@@ -180,6 +184,7 @@ export default class SingleRoom extends Component {
               back 
           </Link>
         </div>
+        <ChatSupport/>
         <Footer/>
       </>
     );

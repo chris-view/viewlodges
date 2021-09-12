@@ -1,7 +1,7 @@
 import React, { Component } from "react"; 
-//import items from "./roommieData";
+// import items from "./roommieData"; // comment unblock for local data
 import schoolData from "./schoolData";
-import Client from "./Contentful";
+import Client from "./Contentful"; //comment block for local data
 
 const RoommieContext = React.createContext();
 
@@ -45,10 +45,10 @@ export default class RoommieProvider extends Component {
   };
 
   componentDidMount() {
-   this.getData(); // comment out for during local
+    this.getData(); // comment block for local data
 
 
-    // ====> start of local data
+    // ====> start of comment unblocking for local data/ block for live data (reconsider this!)
    
     // let roommies = this.formatData(items);
     // this.shuffleArray(roommies);
@@ -74,7 +74,8 @@ export default class RoommieProvider extends Component {
       let id = item.sys.id;
      
       
-      // start of comment during local data activity
+      // start of comment block for local data / unblock for live data 
+      
       let roommieAvatar = "";
       if(item.fields.roommieAvatar){ 
         roommieAvatar = item.fields.roommieAvatar.map(image => image.fields.file.url);  
@@ -83,9 +84,12 @@ export default class RoommieProvider extends Component {
       if(item.fields.lodgeAvatar){
         lodgeAvatar = item.fields.lodgeAvatar.map(image => image.fields.file.url);
       }
-
-      // end of comment on local
+     
       let roommie = { ...item.fields, id, roommieAvatar, lodgeAvatar };
+     
+      // end of comment on local
+      
+      
       return roommie;
     });
     return tempItems;

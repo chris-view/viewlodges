@@ -556,6 +556,10 @@ h6 {
   padding-left: 0.5rem;
   
 }
+.info h6 span{
+  color:grey;
+  
+}
 .desc h3 {
   text-transform: capitalize;
   letter-spacing: var(--mainSpacing);
