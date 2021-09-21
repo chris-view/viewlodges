@@ -6,7 +6,7 @@ import YoutubeVideo from "../components/YoutubeVideo";
 
 
 const Visuals = ({images, name, youtubeUrl}) => {
-  const [display, setDisplay] = useLocalStorageState("display","videos");
+  const [display, setDisplay] = useLocalStorageState("display","pictures");
   const setLodges = () => {
     setDisplay("pictures")
   }
