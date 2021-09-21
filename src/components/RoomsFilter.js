@@ -70,7 +70,7 @@ const RoomsFilter = () => {
 
          {/* regions  */}
          <div className="form-group">
-          <label htmlFor="region">Preferred Region</label>
+          <label htmlFor="region">Popular Regions</label>
           <select
             name="region"
             id="region"

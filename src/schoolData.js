@@ -17,8 +17,12 @@
         region: ["Apkaden","Eket Road Axis","Etim-town","Ikot Obio Ndoho","Ikot Oyoro","Ikot Isighe","Ndoho","Uyo Road Axis"]
     },
     {
+        school: "COOU",
+        region: ["Igbariam Campus","Uli Campus"]
+    },
+    {
         school: "DELSU",
-        region: ["Express","Ekrejeta","Igbo Quarters","Lucas Road Axis","Lucas Road Axis","Old Road Axis","River Road Axis","Station Road Axis"]
+        region: ["Campus 1","Campus 2", "Campus 3","Express","Ekrejeta","Igbo Quarters","Lucas Road Axis","Lucas Road Axis","Old Road Axis","River Road Axis","Station Road Axis"]
     },
     {
         school: "FUNAAB",

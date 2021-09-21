@@ -150,18 +150,16 @@ export default class Roommie_Profile extends Component {
         }
         {!isRoommieFound ?
         <>
-          <a style ={{textDecoration:"none"}}  href={`https://wa.me/234${whatsappContact}?text=Hi,%20I%20saw%20your%20roommate%20request%20on%20Viewlodges.com.ng`} target="blank">
+          <a style ={{textDecoration:"none"}}  href={`https://wa.me/234${whatsappContact}?text=Hi%20${fname},%20I%20saw%20your%20roommate%20request%20on%20Viewlodges.com.ng`} target="blank">
             <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
               <div style={{width:"10em", height:"3em", backgroundColor:"black", borderRadius:"3em", padding:"0.4em 1em 0 1em", border: "0.2em solid #ac6f28"}}>
                   <span><FaWhatsapp style={{color:"green", width:"1.5em", height:"1.5em", float:"left"}}/></span>
-                  <span style={{color:"white", float:"right"}}>Send DM</span>
+                  <span style={{color:"white", float:"right"}}>Chat Now!</span>
               </div>  
             </div> 
           </a>
           <br/><br/>
-          {/* <div className="disclaimer">
-            <h4 className="room-extras">Safty Tip:</h4><em>Always make proper investigations before making any form of payments. To help keep <span>ViewLodges</span> safe for everyone, report user if you find anything frudulent.</em>
-          </div> */}
+        
         </>
        
         :<div style={{display:"flex", justifyContent:"center", alignItems:"center", color:"grey"}}> 

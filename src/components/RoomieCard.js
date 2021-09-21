@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { memo } from "react";
 import { Link } from "react-router-dom";
 import defaultImg from "../images/VL_fav_white.PNG";
-import unknownUser from "../images/default-avatar.jpg";
 import sponsorIcon from "../images/sponsorIcon.png";
 import locationIcon from "../images/locationImg.png";
 
@@ -17,12 +16,12 @@ const roomieCard = memo(({ roommie }) => {
         <Link to={`/roommates/${id}`} >
             <div className="center-align-roomie" style = {{position:"relative"}}>
                 <div className="avatars" >
-                    <span className="avatar" >
+                    <span className="avatar"  style={{zIndex:"100"}} >
                        
                       <img  src={roommieAvatar || defaultImg} width="100px" height="100px" alt="image1"/>
                       
                     </span>
-                    <span className="avatar">
+                    {/* <span className="avatar">
                     
                         <img src= {unknownUser} width="100px" height="100px" alt="image2"/>
                     </span>
@@ -30,14 +29,21 @@ const roomieCard = memo(({ roommie }) => {
                     
                         <img src= {unknownUser} width="100px" height="100px" alt="image3"/>
                     </span>:""}
-                    
+                     */}
                 </div>
-                {sponsored ? // display sponsored icon if user is been boosted 90px for two
+                {/* {sponsored ? // display sponsored icon if user is been boosted 90px for two
                    noOfRoommies > 1 ?
                       <img style = {{position:"absolute", top:"0", left:"calc(50% - 90px)"}} src = {sponsorIcon} width="30px" height ="30px" alt ="sponsored2"/>
                     :
                     <img style = {{position:"absolute", top:"0", left:"calc(50% - 70px)"}} src = {sponsorIcon} width="30px" height ="30px" alt ="sponsored1"/>
-                :""}   
+                :""}   */}
+
+                {sponsored ? // display sponsored icon if user is been boosted 90px for two
+                   
+                      <img style = {{position:"absolute", top:"0", left:"calc(50% - 55px)"}} src = {sponsorIcon} width="30px" height ="30px" alt ="sponsored2"/>      
+              
+                :""} 
+
             </div>
          
         </Link>

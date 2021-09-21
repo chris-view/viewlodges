@@ -1,6 +1,7 @@
 import React from 'react'
 import {FaWhatsapp} from 'react-icons/fa'
 
+
 export default function ChatSupport() {
     return (
         <div style={{position: "fixed", bottom:"1.5em", right:"1.5em", zIndex:"10"}}>

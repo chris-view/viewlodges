@@ -10,11 +10,11 @@ export default function About() {
             <article className="service">
                 <h6>Who We Are</h6>
                 <div>
-                    ViewLodges is a self-service platform, with the aim to primarily make Off-Campus accommodation search, both stress 
+                    ViewLodges is a unified student apartment and roommate pairing platform, with the aim to primarily make Off-Campus accommodation search, both stress 
                     and danger free, by connecting prospective tenants to verified property owners, solicitors and caretakers.
                 </div>
             </article>
-            <article className="service">
+            {/* <article className="service">
                 <h6>Our Story</h6>
                 <div>
                     <p>
@@ -35,13 +35,19 @@ export default function About() {
                     </p>
                 </div>
             </article>
+     */}
     
-    
-            <article className="service">
+            <article className="service ">
                 <h6>Our Vision</h6>
                 <div>
                     Our vision is to ease Off-Campus accommodation search by users, especially students around
                     different Institutions accross Africa.
+                </div>
+            </article>
+            <article className="service ">
+                <h6>Our Mission</h6>
+                <div>
+                    To become the biggest data player around student communities across Africa.
                 </div>
             </article>
             

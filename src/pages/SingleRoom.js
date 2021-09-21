@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { FaCheckCircle, FaWhatsapp} from "react-icons/fa";
+import { FaCheckCircle, FaWhatsapp, FaYoutube, FaFacebook, FaInstagram} from "react-icons/fa";
 import { RoomContext } from "../context";
-import YoutubeVideo from "../components/YoutubeVideo";
 import defaultBcg from "../images/VL_fav_white.PNG";
 import defaultAvatar from "../images/default-avatar.jpg";
 import Footer from "../components/Footer";
-import YouTubeButton from "../components/YouTubeButton";
+// import YouTubeButton from "../components/YouTubeButton";
 import ChatSupport from "../components/ChatSupport";
+import Visuals from "../components/Visuals";
+
+
 
 
 export default class SingleRoom extends Component {
@@ -57,6 +59,7 @@ export default class SingleRoom extends Component {
       water,
       extras,
       capacity,
+      region,
       junction,
       nameOfCaretaker,
       phOfCaretaker,
@@ -80,22 +83,26 @@ export default class SingleRoom extends Component {
         <section className="single-room">
           
           <div className="single-room-info">
-             <article className="info">
+          
+           <Visuals images = {images} name = {name} youtubeUrl = {youtubeUrl}/>
+             {/* <article className="info"> */}
               {// test for when youtube URL is not given and display frontal image instead
               }
-              {youtubeUrl ? <YoutubeVideo title = {name} url = {youtubeUrl}/>:<img style={{width:"100%", height:"auto"}} src={images[0] || defaultBcg} alt="frontal"/>}
-              
-            </article>
+              {/* {youtubeUrl ? <YoutubeVideo title = {name} url = {youtubeUrl}/>:<img style={{width:"100%", height:"auto"}} src={images[0] || defaultBcg} alt="frontal"/>} */}
+              {/* <SwipeImages images = {images}/> */}
+
+
+            {/* </article> */}
           <article className="info">
-              {/* <h5 className="format-text">Subscribe and Stay Updated:</h5>
-              <a href="https://www.youtube.com/channel/UCJf0a6NnSk6Z7E3E-dY4csg" target="blank"><FaYoutube className="social-icon youtube" /></a>
+              <h5 className="format-text">Follow and Stay Updated:</h5>
               <a href="https://www.facebook.com/viewlodges" target="blank"><FaFacebook className="social-icon facebook" /></a>
+              <a href="https://www.youtube.com/channel/UCJf0a6NnSk6Z7E3E-dY4csg" target="blank"><FaYoutube className="social-icon youtube" /></a>
               <Link to="#"><FaInstagram className="social-icon instagram" /></Link><br/><br/><br/>
-               */}
-               <YouTubeButton/>
+              
+{/*             
               
               <br/>
-              <em style = {{color:"grey", fontSize:"0.7em", lineHeight:"1.5"}}>Please Subscribe if you find what we do useful and stay updated.</em>
+              <em style = {{color:"grey", fontSize:"0.7em", lineHeight:"1.5"}}>Please Subscribe if you find what we do useful and stay updated.</em> */}
               
             </article>
                 
@@ -158,11 +165,11 @@ export default class SingleRoom extends Component {
               <h6>Currently Occupied!</h6>
             </div>
             :
-              <a style ={{textDecoration:"none"}}  href={`https://wa.me/2348141108125?text=Hi,%20I%20saw%20${name}%20on%20%20Viewlodges.com.ng`} target="blank">   
+              <a style ={{textDecoration:"none"}}  href={`https://wa.me/2348141108125?text=Hi,%20I%20am%20interested%20in%20${name}%20around%20${region}.`} target="blank">   
                 <div style={{display:"flex", justifyContent:"center", alignItems:"center", margin:"1rem 0 0.5rem 0"}}>
                   <div style={{width:"10em", height:"3em", backgroundColor:"black", borderRadius:"3em", padding:"0.4em 1em 0 1em", border: "0.2em solid #ac6f28"}}>
                       <span><FaWhatsapp style={{color:"green", width:"1.5em", height:"1.5em", float:"left"}}/></span>
-                      <span style={{color:"white", float:"right"}}>Send DM</span>
+                      <span style={{color:"white", float:"right"}}>Chat Now!</span>
                   
                   </div>  
                 </div>
@@ -176,7 +183,7 @@ export default class SingleRoom extends Component {
         </div>
           
         <br/><div className="disclaimer"><h4 className="room-extras">Safty Tip:</h4>
-        <em>Always go for physical verification before making any form of payments. To help keep <span>ViewLodges</span> safe for everyone, report it if you find anything frudulent.</em></div>
+        <em>Asking a close friend to escort you during inspection is advised. To help keep <span>ViewLodges</span> safe for everyone, report it if you find anything fraudulent.</em></div>
         
 
         <div  style={{ display : "flex", alignItems : "center", justifyContent : "center", padding : "2rem"}}>

@@ -2,6 +2,7 @@ import React from 'react'
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import Banner from "../components/Banner";
+// import ImagesTest from "../components/ImagesTest";
 
 
 function Register() {
@@ -19,6 +20,7 @@ function Register() {
                     <br/><br/>
                 </Banner>
             </Hero>
+             {/* <ImagesTest/> */}
             <Footer/> 
         </>
     )

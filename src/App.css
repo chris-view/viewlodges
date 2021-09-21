@@ -600,6 +600,23 @@ h6 {
   grid-column-gap: 2rem;
   grid-row-gap: 1rem;
 }
+/* start of swiper image */
+
+.swiper-container {
+  width: 293px;
+  height: 220px;
+  
+  
+}
+
+.swiper-wrapper{
+  padding-inline-start: 0;
+}
+.swiper-pagination-bullet-active  {
+  background-color: var(--primaryColor) !important;
+}
+
+/* end of swiper */
 @media screen and (min-width: 992px) {
   .single-room-images,
   .single-room-info,
@@ -660,12 +677,30 @@ h6 {
   .roomslist-center {
     width: 90vw;
   }
+  .swiper-container {
+    width: 400px;
+    height: 300px;
+    
+  }
+  
 }
 @media screen and (min-width: 992px) {
   .roomslist-center {
     width: 95vw;
     max-width: 1170px;
   }
+  .swiper-container {
+    width: 570px;
+    height: 412px;
+    
+  }
+  .swiper-container .swiper-zoom-container>img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+    object-position: center !important;
+}
+
 }
 /* end of roomlist */
 /* Override range styling */

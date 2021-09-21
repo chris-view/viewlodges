@@ -1,7 +1,7 @@
 import React, { Component } from "react"; 
-//import items from "./data";
-import schoolData from "./schoolData";
-import Client from "./Contentful";
+// import items from "./data"; //coment block for live data/
+import schoolData from "./schoolData"; 
+import Client from "./Contentful"; //comment block for local data
 
 const RoomContext = React.createContext();
 
@@ -21,7 +21,8 @@ export default class RoomProvider extends Component {
     maxPrice: 0,
   };
 
-  getData = async () => {
+  // comment block for local data
+  getData = async () => { 
     try {
       let response = await Client.getEntries({
         content_type: "lodgesContentType"
@@ -46,7 +47,7 @@ export default class RoomProvider extends Component {
   };
 
   componentDidMount() {
-     this.getData();  // comment out for during local activity
+    this.getData();  // comment out for during local activity
 
 
     // ====> start of local data
@@ -77,7 +78,7 @@ export default class RoomProvider extends Component {
       let tempItems = items.map(item => {
       let id = item.sys.id;
       let images = item.fields.images.map(image => image.fields.file.url);
-  //    let room = { ...item.fields, images, id}; // use for local activity
+     // let room = { ...item.fields, images, id}; // use for local activity
     // comment block when dealing with local data -->start
       let avatarCaretaker = "";
       if (item.fields.avatarCaretaker ){
@@ -96,7 +97,7 @@ export default class RoomProvider extends Component {
     return room;
   };
 
-  formatPrice = price => "₦"+price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  formatPrice = price => "₦"+price.toString().replace(!/\B(?=(\d{3})+(?!\d))/g, ",");
 
   handleChange = event => {
     const target = event.target;
