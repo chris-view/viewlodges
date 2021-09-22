@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FaWhatsapp} from "react-icons/fa";
 import { RoommieContext } from "../roommieContext";
 import defaultBcg from "../images/VL_fav_white.PNG";
-import defaultAvatar from "../images/default_video.png";
+import defaultAvatar from "../images/no_house_photo.png";
 import vipTag from "../images/vip.png";
 import Footer from "../components/Footer";
 import AddRoommie from "../components/AddRoommie";
@@ -62,16 +62,16 @@ export default class Roommie_Profile extends Component {
       level,
       gender,
       interestedIn,
-      contact,
+      // contact,
       sponsored,
       isRoommieFound,
       isLodgeFound,
     } = roommie;
    
     // convert to whatsapp linkable number
-    let a = contact.split("")
-    a.shift()
-    let whatsappContact = a.join("")
+    // let a = contact.split("")
+    // a.shift()
+    // let whatsappContact = a.join("")
 
 
     return (
@@ -150,7 +150,18 @@ export default class Roommie_Profile extends Component {
         }
         {!isRoommieFound ?
         <>
-          <a style ={{textDecoration:"none"}}  href={`https://wa.me/234${whatsappContact}?text=Hi%20${fname},%20I%20saw%20your%20roommate%20request%20on%20Viewlodges.com.ng`} target="blank">
+          {/* <a style ={{textDecoration:"none"}}  href={`https://wa.me/234${whatsappContact}?text=Hi%20${fname},%20I%20saw%20your%20roommate%20request%20on%20Viewlodges.com.ng`} target="blank">
+            <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
+              <div style={{width:"10em", height:"3em", backgroundColor:"black", borderRadius:"3em", padding:"0.4em 1em 0 1em", border: "0.2em solid #ac6f28"}}>
+                  <span><FaWhatsapp style={{color:"green", width:"1.5em", height:"1.5em", float:"left"}}/></span>
+                  <span style={{color:"white", float:"right"}}>Chat Now!</span>
+              </div>  
+            </div> 
+          </a>
+          <br/><br/>
+         */}
+
+          <a style ={{textDecoration:"none"}}  href={`https://wa.me/2348141108125?text=Hi,%20I'm%20interested%20in%20${fname}'s%20roommate%20request%20at%20${region},%20${school}.`} target="blank">
             <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
               <div style={{width:"10em", height:"3em", backgroundColor:"black", borderRadius:"3em", padding:"0.4em 1em 0 1em", border: "0.2em solid #ac6f28"}}>
                   <span><FaWhatsapp style={{color:"green", width:"1.5em", height:"1.5em", float:"left"}}/></span>
