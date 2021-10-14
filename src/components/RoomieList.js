@@ -5,7 +5,7 @@ import { RoomContext } from "../context";
 import { FaFacebook, FaYoutube, FaInstagram} from "react-icons/fa";
 import RoomieCard from "./RoomieCard";
 import AddRoommie from "./AddRoommie";
-import GoogleAd from "./GoogleAd";
+// import GoogleAd from "./GoogleAd";
 
 const RoomieList = ({ roommies }) => {
   const context = useContext(RoomContext);
