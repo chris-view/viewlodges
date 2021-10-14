@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { FaWhatsapp} from "react-icons/fa";
 import { RoommieContext } from "../roommieContext";
 import defaultBcg from "../images/VL_fav_white.PNG";
-import defaultAvatar from "../images/no_house_photo.png";
+import defaultAvatar2 from "../images/no_house_photo.png";
+import defaultAvatar from "../images/default-avatar.jpg";
 import vipTag from "../images/vip.png";
 import Footer from "../components/Footer";
 import AddRoommie from "../components/AddRoommie";
@@ -81,7 +82,7 @@ export default class Roommie_Profile extends Component {
           <div className="single-room-info">
              <article className="info">
                 <div style={{width:"100%", height:"15em", position:"relative", }}>
-                    <img style={{ width:"100%", height:"100%", borderTopLeftRadius:"15%", borderTopRightRadius:"15%"}} src={lodgeAvatar || defaultAvatar} alt="found lodge" /> 
+                    <img style={{ width:"100%", height:"100%", borderTopLeftRadius:"15%", borderTopRightRadius:"15%"}} src={lodgeAvatar || defaultAvatar2} alt="found lodge" /> 
                     <div style={{position:"absolute", bottom:"calc(50% - 12em)", right:"calc(50% - 4em)"}}>
                         <img style={{borderRadius:"50%", width:"8em", height:"8em", border: "5px solid #ac6f28", marginBottom: "1em"}} src={roommieAvatar || defaultAvatar} alt="Caretaker" />  
                     </div>

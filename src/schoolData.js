@@ -13,6 +13,10 @@
         region: ["Immaculate", "Railway", "Star-paper", "Ususu", ]
     },
     {
+        school: "AGBOR-UNI",
+        region: ["Agbo-obi", "Alihame", "Board Road Axis" ]
+    },
+    {
         school: "AKSU",
         region: ["Apkaden","Eket Road Axis","Etim-town","Ikot Obio Ndoho","Ikot Oyoro","Ikot Isighe","Ndoho","Uyo Road Axis"]
     },
