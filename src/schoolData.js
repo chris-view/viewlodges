@@ -5,7 +5,7 @@
     },
     {
         school: "UNIPORT",
-        region: ["Alakahia","Aluu","Choba","Choba Extension","Rumousi"]
+        region: ["Alakahia","Aluu","Back of Chem","Choba","Choba Extension","Rumousi"]
     },
     
     {
