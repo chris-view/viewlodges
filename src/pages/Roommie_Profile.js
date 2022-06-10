@@ -178,7 +178,7 @@ export default class Roommie_Profile extends Component {
           <h4>Roommie Found!</h4>
         </div>}
         <div className="room-extras">
-            <AddRoommie text = "Do you also want to make your own request?"/>
+            <AddRoommie text = "Would you like to make your own request?"/>
         </div>
        
       <div  style={{ display : "flex", alignItems : "center", justifyContent : "center", padding : "2rem", paddingTop:"0"}}>
