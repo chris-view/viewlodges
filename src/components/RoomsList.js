@@ -5,7 +5,7 @@ import { RoomContext } from "../context";
 import { FaFacebook, FaYoutube, FaInstagram} from "react-icons/fa";
 import RoomCard from "./RoomCard";
 import LodgeRequest from "./LodgeRequest"
-// import GoogleAd from "./GoogleAd";
+// import GoogleAd from "./GoogleAd";git
 
 const RoomsList = ({ rooms }) => {
   const context = useContext(RoomContext);
