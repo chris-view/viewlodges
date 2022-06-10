@@ -5,7 +5,7 @@ import { RoomContext } from "../context";
 import { FaFacebook, FaYoutube, FaInstagram} from "react-icons/fa";
 import RoomieCard from "./RoomieCard";
 import AddRoommie from "./AddRoommie";
-import GoogleAd from "./GoogleAd";
+// import GoogleAd from "./GoogleAd";
 
 const RoomieList = ({ roommies }) => {
   const context = useContext(RoomContext);
@@ -41,12 +41,12 @@ const RoomieList = ({ roommies }) => {
 
         return(
            <React.Fragment key = {idx}>
-              {((idx+1) % 3 ===0) ?  // set to show ads after every three lodge views
+              {/* {((idx+1) % 3 ===0) ?  // set to show ads after every three lodge views
                 <div  >
                   <GoogleAd  timeout={500}  />
                 </div>:""
               
-              }
+              } */}
               <div  >
                 <RoomieCard roommie={item}/>
               </div>
